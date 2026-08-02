@@ -1,0 +1,5929 @@
+{
+  "meta": {
+    "id": "materials",
+    "label": "Materials",
+    "version": 2,
+    "description": "Materials from Material Tables II spreadsheet. Property bindings follow ItemPropertyValue shape; numeric columns are 0–100 Float properties.",
+    "sources": [
+      "Material Tables II (Google Sheet CSV)",
+      "For Review/ITEM_PROPERTY_SYSTEM.md",
+      "Trailbound.md / Crafting and Item Attributes"
+    ],
+    "schemaNotes": [
+      "kind: material",
+      "gameName: in-world name when present; otherwise name falls back to irlInspo",
+      "irlInspo: real-world reference material",
+      "category: spreadsheet Type (dirt|ore|alloy|stone|…)",
+      "tier: Roman numeral band",
+      "properties: Float stats from the sheet + optional Tier enum",
+      "uses: parsed list of craft/application targets"
+    ],
+    "lastImport": {
+      "file": "Material Tables II - Sheet1.csv",
+      "at": "2026-08-02T03:55:31.617Z",
+      "rowCount": 40
+    }
+  },
+  "propertyDefinitions": [
+    {
+      "id": "tensile-strength",
+      "name": "Tensile Strength",
+      "valueType": "Float",
+      "min": 0,
+      "max": 100,
+      "description": "Tensile Strength contribution for materials (0–100 authored scale from Material Tables II).",
+      "tags": [
+        "material-table",
+        "float"
+      ],
+      "sourceColumn": "Tensile Strength"
+    },
+    {
+      "id": "density",
+      "name": "Density",
+      "valueType": "Float",
+      "min": 0,
+      "max": 100,
+      "description": "Density contribution for materials (0–100 authored scale from Material Tables II).",
+      "tags": [
+        "material-table",
+        "float"
+      ],
+      "sourceColumn": "Density"
+    },
+    {
+      "id": "refractory-index",
+      "name": "Refractory Index",
+      "valueType": "Float",
+      "min": 0,
+      "max": 100,
+      "description": "Refractory Index contribution for materials (0–100 authored scale from Material Tables II).",
+      "tags": [
+        "material-table",
+        "float"
+      ],
+      "sourceColumn": "Refractory Index"
+    },
+    {
+      "id": "abrasiveness",
+      "name": "Abrasiveness",
+      "valueType": "Float",
+      "min": 0,
+      "max": 100,
+      "description": "Abrasiveness contribution for materials (0–100 authored scale from Material Tables II).",
+      "tags": [
+        "material-table",
+        "float"
+      ],
+      "sourceColumn": "Abrasiveness"
+    },
+    {
+      "id": "malleability",
+      "name": "Malleability",
+      "valueType": "Float",
+      "min": 0,
+      "max": 100,
+      "description": "Malleability contribution for materials (0–100 authored scale from Material Tables II).",
+      "tags": [
+        "material-table",
+        "float"
+      ],
+      "sourceColumn": "Malleability"
+    },
+    {
+      "id": "chemical-reactivity",
+      "name": "Chemical Reactivity",
+      "valueType": "Float",
+      "min": 0,
+      "max": 100,
+      "description": "Chemical Reactivity contribution for materials (0–100 authored scale from Material Tables II).",
+      "tags": [
+        "material-table",
+        "float"
+      ],
+      "sourceColumn": "Chemical Reactivity"
+    },
+    {
+      "id": "insulative-value",
+      "name": "Insulative Value",
+      "valueType": "Float",
+      "min": 0,
+      "max": 100,
+      "description": "Insulative Value contribution for materials (0–100 authored scale from Material Tables II).",
+      "tags": [
+        "material-table",
+        "float"
+      ],
+      "sourceColumn": "Insulative Value"
+    },
+    {
+      "id": "cohesion",
+      "name": "Cohesion",
+      "valueType": "Float",
+      "min": 0,
+      "max": 100,
+      "description": "Cohesion contribution for materials (0–100 authored scale from Material Tables II).",
+      "tags": [
+        "material-table",
+        "float"
+      ],
+      "sourceColumn": "Cohesion"
+    },
+    {
+      "id": "fertility",
+      "name": "Fertility",
+      "valueType": "Float",
+      "min": 0,
+      "max": 100,
+      "description": "Fertility contribution for materials (0–100 authored scale from Material Tables II).",
+      "tags": [
+        "material-table",
+        "float"
+      ],
+      "sourceColumn": "Fertility"
+    },
+    {
+      "id": "lustrous-quality",
+      "name": "Lustrous Quality",
+      "valueType": "Float",
+      "min": 0,
+      "max": 100,
+      "description": "Lustrous Quality contribution for materials (0–100 authored scale from Material Tables II).",
+      "tags": [
+        "material-table",
+        "float"
+      ],
+      "sourceColumn": "Lustrous Quality"
+    },
+    {
+      "id": "tier",
+      "name": "Tier",
+      "valueType": "Enum",
+      "enumOptions": [
+        "I",
+        "II",
+        "III",
+        "IV",
+        "V"
+      ],
+      "description": "Material tier band from the spreadsheet (Roman numeral).",
+      "tags": [
+        "material-table",
+        "enum"
+      ],
+      "sourceColumn": "Tier"
+    }
+  ],
+  "records": [
+    {
+      "kind": "material",
+      "id": "fine-sand",
+      "name": "Fine Sand",
+      "irlInspo": "Fine Sand",
+      "category": "dirt",
+      "tier": "I",
+      "description": "Low nutrients, poor malleability (doesn't hold shape), decent weather resistance, some aesthetic potential in decorative applications.",
+      "uses": [
+        "Mortar",
+        "Concret",
+        "Glass"
+      ],
+      "usesRaw": "Mortar/Concret, Glass",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "dirt",
+        "tier-i",
+        "irl-named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 5,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 50,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 30,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 20,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 90,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 50,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 5,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 15,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ]
+    },
+    {
+      "kind": "material",
+      "id": "volcanic-ash",
+      "name": "Volcanic Ash",
+      "irlInspo": "Volcanic Ash",
+      "category": "dirt",
+      "tier": "I",
+      "description": "Moderate nutrients (after aging), low weight, low weather resistance in raw form.",
+      "uses": [
+        "Concrete",
+        "Abrasives",
+        "Polish",
+        "fertile soil"
+      ],
+      "usesRaw": "Concrete, Abrasives/Polish, fertile soil",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "dirt",
+        "tier-i",
+        "irl-named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 5,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 25,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 20,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 60,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 70,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 60,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 30,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 20,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ]
+    },
+    {
+      "kind": "material",
+      "id": "desert-sand",
+      "name": "Desert Sand",
+      "irlInspo": "Desert Sand",
+      "category": "dirt",
+      "description": "Desert Sand material.",
+      "uses": [
+        "Glass Manufacturing",
+        "construction",
+        "leveling"
+      ],
+      "usesRaw": "Glass Manufacturing, construction/leveling",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "dirt",
+        "irl-named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 5,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 55,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 30,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 20,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 5,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 95,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 55,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 5,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 15,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        }
+      ]
+    },
+    {
+      "kind": "material",
+      "id": "peat",
+      "name": "Peat",
+      "irlInspo": "Peat",
+      "category": "dirt",
+      "tier": "I",
+      "description": "Excellent nutrients (for specific plants), very low hardness/weight, but breaks down easily (low weather resistance).",
+      "uses": [
+        "Water filter",
+        "fueld",
+        "plants"
+      ],
+      "usesRaw": "Water filter, fueld, plants",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "dirt",
+        "tier-i",
+        "irl-named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 5,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 20,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 70,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 60,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 90,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 40,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 70,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ]
+    },
+    {
+      "kind": "material",
+      "id": "chalk-dust",
+      "name": "Chalk Dust",
+      "irlInspo": "Chalk Dust",
+      "category": "dirt",
+      "tier": "I",
+      "description": "Low hardness, low nutrients, crumbles easily.",
+      "uses": [
+        "Reduce Soil acidity",
+        "Stabilize ground in construction",
+        "pigments"
+      ],
+      "usesRaw": "Reduce Soil acidity, Stabilize ground in construction, pigments",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "dirt",
+        "tier-i",
+        "irl-named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 5,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 20,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 15,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 5,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 50,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 70,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 70,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 5,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ]
+    },
+    {
+      "kind": "material",
+      "id": "contaminated-soil",
+      "name": "Contaminated Soil",
+      "irlInspo": "Contaminated Soil",
+      "category": "dirt",
+      "tier": "I",
+      "description": "High toxicity, very low nutrients, generic physical properties.",
+      "uses": [
+        "Landfilling",
+        "purification",
+        "chemical retreival"
+      ],
+      "usesRaw": "Landfilling, purification, chemical retreival",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "dirt",
+        "tier-i",
+        "irl-named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 5,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 30,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 15,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 5,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 40,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 60,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 40,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ]
+    },
+    {
+      "kind": "material",
+      "id": "loam",
+      "name": "Loam",
+      "irlInspo": "Loam",
+      "category": "dirt",
+      "tier": "I",
+      "description": "High nutrients, good workability (malleability) for farming, average weather resistance.",
+      "uses": [
+        "Gardening",
+        "Soil",
+        "adobe walls"
+      ],
+      "usesRaw": "Gardening/Soil, adobe walls",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "dirt",
+        "tier-i",
+        "irl-named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 30,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 20,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 5,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 80,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 80,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 70,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 60,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 90,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 5,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ]
+    },
+    {
+      "kind": "material",
+      "id": "silt",
+      "name": "Silt",
+      "irlInspo": "Silt",
+      "category": "dirt",
+      "tier": "I",
+      "description": "Between sand and clay, good for some agriculture but prone to erosion.",
+      "uses": [
+        "Agriculture"
+      ],
+      "usesRaw": "Agriculture",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "dirt",
+        "tier-i",
+        "irl-named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 35,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 25,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 5,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 70,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 75,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 65,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 50,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 60,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 5,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ]
+    },
+    {
+      "kind": "material",
+      "id": "heartvein",
+      "name": "Heartvein",
+      "gameName": "Heartvein",
+      "irlInspo": "Cinnabar",
+      "category": "ore",
+      "tier": "I",
+      "description": "Mercury, bright red.",
+      "uses": [
+        "Mercury",
+        "Thermo",
+        "vermillion red pigment",
+        "alchemy"
+      ],
+      "usesRaw": "Mercury/Thermo, vermillion red pigment, alchemy",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "ore",
+        "tier-i",
+        "named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 75,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 5,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 5,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 5,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 15,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 15,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ],
+      "notes": "IRL inspiration: Cinnabar."
+    },
+    {
+      "kind": "material",
+      "id": "solder",
+      "name": "Solder",
+      "irlInspo": "Solder",
+      "category": "alloy",
+      "tier": "I",
+      "description": "tin and lead, some copper or silver",
+      "uses": [
+        "Electronics",
+        "plumbing",
+        "stained glass"
+      ],
+      "usesRaw": "Electronics, plumbing, stained glass",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "alloy",
+        "tier-i",
+        "irl-named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 80,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 15,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 5,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 95,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 60,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 70,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 30,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ]
+    },
+    {
+      "kind": "material",
+      "id": "clay",
+      "name": "Clay",
+      "irlInspo": "Clay",
+      "category": "dirt",
+      "tier": "I",
+      "description": "Very high malleability (pottery, bricks), moderate nutrients, good weather resistance when processed.",
+      "uses": [
+        "Pottery",
+        "Construction",
+        "Sealing",
+        "cosmetics"
+      ],
+      "usesRaw": "Pottery, Construction/Sealing, cosmetics",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "dirt",
+        "tier-i",
+        "irl-named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 15,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 45,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 40,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 95,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 85,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 80,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 90,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 40,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ]
+    },
+    {
+      "kind": "material",
+      "id": "pumice",
+      "name": "Pumice",
+      "gameName": "Pumice",
+      "irlInspo": "Pumice",
+      "category": "stone",
+      "tier": "I",
+      "description": "Extremely lightweight, very low hardness, poor general utility beyond insulation/abrasive.",
+      "uses": [
+        "Polishing",
+        "soil",
+        "lightweight construction"
+      ],
+      "usesRaw": "Polishing, soil, lightweight construction",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "stone",
+        "tier-i",
+        "named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 15,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 40,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 90,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 95,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ],
+      "notes": "IRL inspiration: Pumice."
+    },
+    {
+      "kind": "material",
+      "id": "gloomshard",
+      "name": "Gloomshard",
+      "gameName": "Gloomshard",
+      "irlInspo": "Galena",
+      "category": "ore",
+      "tier": "I",
+      "description": "Lead, shiny, silvery gray",
+      "uses": [
+        "Batteries",
+        "radiation shield",
+        "silver",
+        "black pigment"
+      ],
+      "usesRaw": "Batteries, radiation shield, silver, black pigment",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "ore",
+        "tier-i",
+        "named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 15,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 85,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 20,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 5,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 20,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 30,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 15,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 25,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ],
+      "notes": "IRL inspiration: Galena."
+    },
+    {
+      "kind": "material",
+      "id": "gravel",
+      "name": "Gravel",
+      "irlInspo": "Gravel",
+      "category": "dirt",
+      "tier": "I",
+      "description": "High blunt potential (good for basic paths, rough impact), no malleability, poor nutrients.",
+      "uses": [
+        "Asphalts",
+        "Drain Systems",
+        "Roads"
+      ],
+      "usesRaw": "Asphalts, Drain Systems, Roads",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "dirt",
+        "tier-i",
+        "irl-named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 20,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 60,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 50,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 30,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 90,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 40,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 20,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 5,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ]
+    },
+    {
+      "kind": "material",
+      "id": "cloudstone",
+      "name": "Cloudstone",
+      "gameName": "Cloudstone",
+      "irlInspo": "Bauxite",
+      "category": "ore",
+      "tier": "I",
+      "description": "Aluminum - Reddish brown clay or rock",
+      "uses": [
+        "Abrasive and heat resistance"
+      ],
+      "usesRaw": "Abrasive and heat resistance",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "ore",
+        "tier-i",
+        "named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 20,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 50,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 30,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 5,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 40,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 20,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 30,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 5,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ],
+      "notes": "IRL inspiration: Bauxite."
+    },
+    {
+      "kind": "material",
+      "id": "grim-coal",
+      "name": "Grim-Coal",
+      "gameName": "Grim-Coal",
+      "irlInspo": "Pyrolusite",
+      "category": "ore",
+      "tier": "I",
+      "description": "Manganese, soft, black, powdery",
+      "uses": [
+        "Steel and aluminum",
+        "batteries",
+        "dark pigments"
+      ],
+      "usesRaw": "Steel and aluminum, batteries, dark pigments",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "ore",
+        "tier-i",
+        "named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 20,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 60,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 30,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 5,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 40,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 20,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 30,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 5,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ],
+      "notes": "IRL inspiration: Pyrolusite."
+    },
+    {
+      "kind": "material",
+      "id": "pewter",
+      "name": "Pewter",
+      "irlInspo": "Pewter",
+      "category": "alloy",
+      "tier": "I",
+      "description": "Tin, small amount of copper or bismuth",
+      "uses": [
+        "Tableware and trinkets",
+        "jewelry"
+      ],
+      "usesRaw": "Tableware and trinkets/jewelry",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "alloy",
+        "tier-i",
+        "irl-named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 20,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 60,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 25,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 15,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 90,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 75,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 60,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 40,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 55,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ]
+    },
+    {
+      "kind": "material",
+      "id": "echostone",
+      "name": "Echostone",
+      "gameName": "Echostone",
+      "irlInspo": "Shale",
+      "category": "stone",
+      "tier": "I",
+      "description": "Often layered, crumbly, some nutrient potential if weathered, generally low utility.",
+      "uses": [
+        "Clay",
+        "cements",
+        "oil",
+        "fill material"
+      ],
+      "usesRaw": "Clay/cements, oil/fill material",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "stone",
+        "tier-i",
+        "named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 25,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 40,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 30,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 70,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 60,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 40,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 15,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ],
+      "notes": "IRL inspiration: Shale."
+    },
+    {
+      "kind": "material",
+      "id": "amberspark",
+      "name": "Amberspark",
+      "gameName": "Amberspark",
+      "irlInspo": "Chalcopyrite",
+      "category": "ore",
+      "tier": "I",
+      "description": "Copper Ore, brassy yellow,",
+      "uses": [
+        "Golden-yellow pigment",
+        "sulfuric acid",
+        "copper"
+      ],
+      "usesRaw": "Golden-yellow pigment, sulfuric acid, copper",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "ore",
+        "tier-i",
+        "named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 25,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 60,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 35,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 15,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 15,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 60,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 25,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 35,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ],
+      "notes": "IRL inspiration: Chalcopyrite."
+    },
+    {
+      "kind": "material",
+      "id": "witch-glass",
+      "name": "Witch-Glass",
+      "gameName": "Witch-Glass",
+      "irlInspo": "Sphalerite",
+      "category": "ore",
+      "tier": "I",
+      "description": "Zinc - yellow brown to black, resinous.",
+      "uses": [
+        "Coating steel to prevent rust and decay. White pigments",
+        "some fertilizers"
+      ],
+      "usesRaw": "Coating steel to prevent rust and decay. White pigments, some fertilizers",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "ore",
+        "tier-i",
+        "named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 25,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 55,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 30,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 5,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 55,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 20,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 30,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 5,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ],
+      "notes": "IRL inspiration: Sphalerite."
+    },
+    {
+      "kind": "material",
+      "id": "sandstone",
+      "name": "Sandstone",
+      "gameName": "Sandstone",
+      "irlInspo": "Sandstone",
+      "category": "stone",
+      "tier": "I",
+      "description": "Softer than granite, easy to carve, lower weather resistance.",
+      "uses": [
+        "Construction",
+        "Aquifer",
+        "reservoir"
+      ],
+      "usesRaw": "Construction, Aquifer, reservoir",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "stone",
+        "tier-i",
+        "named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 30,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 45,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 40,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 15,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 80,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 60,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 50,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 20,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ],
+      "notes": "IRL inspiration: Sandstone."
+    },
+    {
+      "kind": "material",
+      "id": "ironroot",
+      "name": "Ironroot",
+      "gameName": "Ironroot",
+      "irlInspo": "Hematite",
+      "category": "ore",
+      "tier": "I",
+      "description": "Iron - Reddish brown",
+      "uses": [
+        "Carvings and jewels when polished",
+        "reddish brown pigments"
+      ],
+      "usesRaw": "Carvings and jewels when polished, reddish brown pigments",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "ore",
+        "tier-i",
+        "named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 30,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 70,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 40,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 20,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 5,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 50,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 30,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 40,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 5,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ],
+      "notes": "IRL inspiration: Hematite."
+    },
+    {
+      "kind": "material",
+      "id": "sterling-silver",
+      "name": "Sterling Silver",
+      "irlInspo": "Sterling Silver",
+      "category": "alloy",
+      "tier": "I",
+      "description": "Silver and Copper",
+      "uses": [
+        "Tableware",
+        "decorative arts",
+        "jewelry"
+      ],
+      "usesRaw": "Tableware, decorative arts, jewelry",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "alloy",
+        "tier-i",
+        "irl-named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 30,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 80,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 35,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 20,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 90,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 80,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 50,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 50,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 95,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ]
+    },
+    {
+      "kind": "material",
+      "id": "glowstone",
+      "name": "Glowstone",
+      "gameName": "Glowstone",
+      "irlInspo": "Pentlandite",
+      "category": "ore",
+      "tier": "I",
+      "description": "Nickel, bronze-yellow",
+      "uses": [
+        "Nickel",
+        "industrial catalysts",
+        "coins"
+      ],
+      "usesRaw": "Nickel, industrial catalysts, coins",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "ore",
+        "tier-i",
+        "named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 35,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 70,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 40,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 20,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 15,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 65,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 30,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 40,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ],
+      "notes": "IRL inspiration: Pentlandite."
+    },
+    {
+      "kind": "material",
+      "id": "limestone",
+      "name": "Limestone",
+      "gameName": "Limestone",
+      "irlInspo": "Limestone",
+      "category": "stone",
+      "tier": "I",
+      "description": "Softer, can have some minor nutrients (calcium), moderate beauty, susceptible to acid rain.",
+      "uses": [
+        "Construction",
+        "agriculture"
+      ],
+      "usesRaw": "Construction, agriculture",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "stone",
+        "tier-i",
+        "named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 40,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 50,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 50,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 20,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 15,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 70,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 50,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 60,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 30,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ],
+      "notes": "IRL inspiration: Limestone."
+    },
+    {
+      "kind": "material",
+      "id": "bog-iron",
+      "name": "Bog-Iron",
+      "gameName": "Bog-Iron",
+      "irlInspo": "Cassiterite",
+      "category": "ore",
+      "tier": "I",
+      "description": "Tin - Dark Brown or Black",
+      "uses": [
+        "Tin",
+        "solder",
+        "plating",
+        "chemical catalyst"
+      ],
+      "usesRaw": "Tin, solder, plating, chemical catalyst",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "ore",
+        "tier-i",
+        "named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 40,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 80,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 45,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 25,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 60,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 35,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 45,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ],
+      "notes": "IRL inspiration: Cassiterite."
+    },
+    {
+      "kind": "material",
+      "id": "slate",
+      "name": "Slate",
+      "gameName": "Slate",
+      "irlInspo": "Slate",
+      "category": "stone",
+      "tier": "I",
+      "description": "Splits easily (good for roofing/tiles), good weather resistance, moderate hardness.",
+      "uses": [
+        "Roofing",
+        "writing tablets"
+      ],
+      "usesRaw": "Roofing, writing tablets",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "stone",
+        "tier-i",
+        "named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 45,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 55,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 70,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 25,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 90,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 60,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 60,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 40,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ],
+      "notes": "IRL inspiration: Slate."
+    },
+    {
+      "kind": "material",
+      "id": "brass",
+      "name": "Brass",
+      "gameName": "Brass",
+      "irlInspo": "Brass",
+      "category": "alloy",
+      "tier": "I",
+      "description": "Copper and Zinc",
+      "uses": [
+        "Musical instruments",
+        "decorative",
+        "ammunition"
+      ],
+      "usesRaw": "Musical instruments, decorative, ammunition",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "alloy",
+        "tier-i",
+        "named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 45,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 65,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 40,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 30,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 80,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 80,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 50,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 60,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 60,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ],
+      "notes": "IRL inspiration: Brass."
+    },
+    {
+      "kind": "material",
+      "id": "marble",
+      "name": "Marble",
+      "gameName": "Marble",
+      "irlInspo": "Marble",
+      "category": "stone",
+      "tier": "I",
+      "description": "Moderate hardness, high beauty (sculpture, decorative), can be somewhat malleable for shaping but still brittle.",
+      "uses": [
+        "Sculptures",
+        "Monuments",
+        "construction"
+      ],
+      "usesRaw": "Sculptures, Monuments, construction",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "stone",
+        "tier-i",
+        "named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 50,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 60,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 60,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 30,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 20,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 65,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 55,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 70,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 90,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ],
+      "notes": "IRL inspiration: Marble."
+    },
+    {
+      "kind": "material",
+      "id": "star-splinter",
+      "name": "Star-Splinter",
+      "gameName": "Star-Splinter",
+      "irlInspo": "Rutile",
+      "category": "ore",
+      "tier": "I",
+      "description": "Titanium, reddish brown to black",
+      "uses": [
+        "Titanium",
+        "welding",
+        "silver",
+        "bright pigment",
+        "plastics"
+      ],
+      "usesRaw": "Titanium, welding, silver/bright pigment, plastics",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "ore",
+        "tier-i",
+        "named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 50,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 65,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 60,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 30,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 70,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 40,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 50,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ],
+      "notes": "IRL inspiration: Rutile."
+    },
+    {
+      "kind": "material",
+      "id": "duralumin",
+      "name": "Duralumin",
+      "irlInspo": "Duralumin",
+      "category": "alloy",
+      "tier": "I",
+      "description": "copper, manganese. High Strength",
+      "uses": [
+        "aircrafts(high strength low weight). Climbing equipment",
+        "bicycles",
+        "etc."
+      ],
+      "usesRaw": "aircrafts(high strength low weight). Climbing equipment, bicycles, etc.",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "alloy",
+        "tier-i",
+        "irl-named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 55,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 40,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 50,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 30,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 60,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 90,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 65,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 50,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 30,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ]
+    },
+    {
+      "kind": "material",
+      "id": "obsidian",
+      "name": "Obsidian",
+      "gameName": "Obsidian",
+      "irlInspo": "Obsidian",
+      "category": "stone",
+      "tier": "I",
+      "description": "Extremely high sharpness potential (natural glass), lower hardness for blunting, very lightweight, high beauty (often used for primitive tools/jewelry)",
+      "uses": [
+        "Tools and Weapons",
+        "Super sharp tools",
+        "Jewelry"
+      ],
+      "usesRaw": "Tools and Weapons, Super sharp tools, Jewelry",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "stone",
+        "tier-i",
+        "named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 60,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 40,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 70,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 70,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 90,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 50,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 70,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 80,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ],
+      "notes": "IRL inspiration: Obsidian."
+    },
+    {
+      "kind": "material",
+      "id": "bronze",
+      "name": "Bronze",
+      "gameName": "Bronze",
+      "irlInspo": "Bronze",
+      "category": "alloy",
+      "tier": "I",
+      "description": "Copper and Tin",
+      "uses": [
+        "Decorative",
+        "machine parts with good wear resistance",
+        "boat",
+        "water proof stuff"
+      ],
+      "usesRaw": "Decorative, machine parts with good wear resistance, boat/water proof stuff",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "alloy",
+        "tier-i",
+        "named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 60,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 70,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 50,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 45,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 70,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 85,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 55,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 65,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 65,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ],
+      "notes": "IRL inspiration: Bronze."
+    },
+    {
+      "kind": "material",
+      "id": "deepstone",
+      "name": "Deepstone",
+      "gameName": "Deepstone",
+      "irlInspo": "Basalt",
+      "category": "stone",
+      "tier": "I",
+      "description": "Very dense and hard, good blunt potential, dark appearance.",
+      "uses": [
+        "Concrete",
+        "paving",
+        "mineral wool",
+        "insulation"
+      ],
+      "usesRaw": "Concrete, paving, mineral wool/insulation",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "stone",
+        "tier-i",
+        "named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 65,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 75,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 85,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 35,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 5,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 95,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 45,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 85,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 30,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ],
+      "notes": "IRL inspiration: Basalt."
+    },
+    {
+      "kind": "material",
+      "id": "cast-iron",
+      "name": "Cast Iron",
+      "irlInspo": "Cast Iron",
+      "category": "alloy",
+      "tier": "I",
+      "description": "Iron with more Carbon",
+      "uses": [
+        "Pipes",
+        "Engines",
+        "Cookware"
+      ],
+      "usesRaw": "Pipes, Engines, Cookware",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "alloy",
+        "tier-i",
+        "irl-named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 65,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 70,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 60,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 20,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 10,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 60,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 35,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 80,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 20,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ]
+    },
+    {
+      "kind": "material",
+      "id": "granite",
+      "name": "Granite",
+      "gameName": "Granite",
+      "irlInspo": "Granite",
+      "category": "stone",
+      "tier": "I",
+      "description": "Very hard, good weather resistance, decent beauty, difficult to shape.",
+      "uses": [
+        "Construction",
+        "pacing",
+        "abrasion"
+      ],
+      "usesRaw": "Construction, pacing, abrasion",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "stone",
+        "tier-i",
+        "named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 70,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 70,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 80,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 40,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 5,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 95,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 40,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 80,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 60,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ],
+      "notes": "IRL inspiration: Granite."
+    },
+    {
+      "kind": "material",
+      "id": "nichrome",
+      "name": "Nichrome",
+      "irlInspo": "Nichrome",
+      "category": "alloy",
+      "tier": "I",
+      "description": "Nickel and Chromium",
+      "uses": [
+        "Resistors",
+        "electronics",
+        "high heat resistance"
+      ],
+      "usesRaw": "Resistors, electronics, high heat resistance",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "alloy",
+        "tier-i",
+        "irl-named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 70,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 70,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 80,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 20,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 30,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 90,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 40,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 70,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 20,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ]
+    },
+    {
+      "kind": "material",
+      "id": "steel",
+      "name": "Steel",
+      "gameName": "Steel",
+      "irlInspo": "Steel",
+      "category": "alloy",
+      "tier": "I",
+      "description": "Iron and Carbon/Manganese, nickel - Strength and Versatility",
+      "uses": [
+        "Construction",
+        "cars",
+        "tools"
+      ],
+      "usesRaw": "Construction, cars, tools",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "alloy",
+        "tier-i",
+        "named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 75,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 70,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 70,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 60,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 50,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 70,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 40,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 70,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 30,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ],
+      "notes": "IRL inspiration: Steel."
+    },
+    {
+      "kind": "material",
+      "id": "quartz",
+      "name": "Quartz",
+      "gameName": "Quartz",
+      "irlInspo": "Quartz",
+      "category": "stone",
+      "tier": "I",
+      "description": "Very hard, very good weather resistance, high beauty (many gem varieties).",
+      "uses": [
+        "Jewelry",
+        "electronics",
+        "glass manufracturing",
+        "optics"
+      ],
+      "usesRaw": "Jewelry, electronics, glass manufracturing/optics",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "stone",
+        "tier-i",
+        "named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 80,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 60,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 90,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 50,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 98,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 55,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 90,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 70,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ],
+      "notes": "IRL inspiration: Quartz."
+    },
+    {
+      "kind": "material",
+      "id": "stainless-steel",
+      "name": "Stainless Steel",
+      "irlInspo": "Stainless Steel",
+      "category": "alloy",
+      "tier": "I",
+      "description": "Iron, nickel, chromium",
+      "uses": [
+        "Medical tools",
+        "kitchenware"
+      ],
+      "usesRaw": "Medical tools, kitchenware",
+      "source": "spreadsheet",
+      "tags": [
+        "material",
+        "alloy",
+        "tier-i",
+        "irl-named",
+        "imported"
+      ],
+      "linkedSystems": [
+        "Crafting and Item Attributes"
+      ],
+      "properties": [
+        {
+          "propertyId": "tensile-strength",
+          "name": "Tensile Strength",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 80,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "density",
+          "name": "Density",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 70,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "refractory-index",
+          "name": "Refractory Index",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 75,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "abrasiveness",
+          "name": "Abrasiveness",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 55,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "malleability",
+          "name": "Malleability",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 40,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "chemical-reactivity",
+          "name": "Chemical Reactivity",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 95,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "insulative-value",
+          "name": "Insulative Value",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 45,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "cohesion",
+          "name": "Cohesion",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 75,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "fertility",
+          "name": "Fertility",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 0,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "lustrous-quality",
+          "name": "Lustrous Quality",
+          "valueType": "Float",
+          "min": 0,
+          "max": 100,
+          "value": 40,
+          "isVisibleToPlayer": true,
+          "isStatic": false
+        },
+        {
+          "propertyId": "tier",
+          "name": "Tier",
+          "valueType": "Enum",
+          "enumOptions": [
+            "I",
+            "II",
+            "III",
+            "IV",
+            "V"
+          ],
+          "value": "I",
+          "isVisibleToPlayer": true,
+          "isStatic": true
+        }
+      ]
+    }
+  ]
+}

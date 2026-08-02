@@ -1,0 +1,66 @@
+Game Name,IRL Inspo,Id,Tier,Type,Description,Uses,Tensile Strength,Density,Refractory Index,Abrasiveness,Malleability,Chemical Reactivity,Insulative Value,Cohesion,Fertility,Lustrous Quality
+,Fine Sand,,I,Dirt,"Low nutrients, poor malleability (doesn't hold shape), decent weather resistance, some aesthetic potential in decorative applications.","Mortar/Concret, Glass",5,50,30,20,10,90,50,10,5,15
+,Volcanic Ash,,I,Dirt,"Moderate nutrients (after aging), low weight, low weather resistance in raw form.","Concrete, Abrasives/Polish, fertile soil",5,25,20,10,60,70,60,30,20,10
+,Desert Sand,,,Dirt,,"Glass Manufacturing, construction/leveling",5,55,30,20,5,95,55,5,0,15
+,Peat,,I,Dirt,"Excellent nutrients (for specific plants), very low hardness/weight, but breaks down easily (low weather resistance).","Water filter, fueld, plants",5,20,10,0,70,60,90,40,70,0
+,Chalk Dust,,I,Dirt,"Low hardness, low nutrients, crumbles easily.","Reduce Soil acidity, Stabilize ground in construction, pigments",5,20,15,5,50,70,70,10,10,5
+,Contaminated Soil,,I,Dirt,"High toxicity, very low nutrients, generic physical properties.","Landfilling, purification, chemical retreival",5,30,15,5,40,10,60,40,10,0
+,Loam,,I,Dirt,"High nutrients, good workability (malleability) for farming, average weather resistance.","Gardening/Soil, adobe walls",10,30,20,5,80,80,70,60,90,5
+,Silt,,I,Dirt,"Between sand and clay, good for some agriculture but prone to erosion.",Agriculture,10,35,25,5,70,75,65,50,60,5
+Heartvein,Cinnabar,,I,Ore,"Mercury, bright red.","Mercury/Thermo, vermillion red pigment, alchemy",10,75,10,0,5,5,5,15,0,15
+,Solder,,I,Alloy,"tin and lead, some copper or silver","Electronics, plumbing, stained glass",10,80,15,5,95,60,70,30,0,10
+,Clay,,I,Dirt,"Very high malleability (pottery, bricks), moderate nutrients, good weather resistance when processed.","Pottery, Construction/Sealing, cosmetics",15,45,40,10,95,85,80,90,40,10
+Pumice,Pumice,,I,Stone,"Extremely lightweight, very low hardness, poor general utility beyond insulation/abrasive.","Polishing, soil, lightweight construction",15,10,40,10,0,90,95,10,0,10
+Gloomshard,Galena,,I,Ore,"Lead, shiny, silvery gray","Batteries, radiation shield, silver, black pigment",15,85,20,5,20,30,15,25,0,10
+,Gravel,,I,Dirt,"High blunt potential (good for basic paths, rough impact), no malleability, poor nutrients.","Asphalts, Drain Systems, Roads",20,60,50,30,0,90,40,20,0,5
+Cloudstone,Bauxite,,I,Ore,Aluminum - Reddish brown clay or rock,Abrasive and heat resistance,20,50,30,10,5,40,20,30,0,5
+Grim-Coal,Pyrolusite,,I,Ore,"Manganese, soft, black, powdery","Steel and aluminum, batteries, dark pigments",20,60,30,10,5,40,20,30,0,5
+,Pewter,,I,Alloy,"Tin, small amount of copper or bismuth",Tableware and trinkets/jewelry,20,60,25,15,90,75,60,40,0,55
+Echostone,Shale,,I,Stone,"Often layered, crumbly, some nutrient potential if weathered, generally low utility.","Clay/cements, oil/fill material",25,40,30,10,10,70,60,40,15,10
+Amberspark,Chalcopyrite,,I,Ore,"Copper Ore, brassy yellow,","Golden-yellow pigment, sulfuric acid, copper",25,60,35,15,15,60,25,35,0,10
+Witch-Glass,Sphalerite,,I,Ore,"Zinc - yellow brown to black, resinous.","Coating steel to prevent rust and decay. White pigments, some fertilizers",25,55,30,10,5,55,20,30,0,5
+Sandstone,Sandstone,,I,Stone,"Softer than granite, easy to carve, lower weather resistance.","Construction, Aquifer, reservoir",30,45,40,15,10,80,60,50,0,20
+Ironroot,Hematite,,I,Ore,Iron - Reddish brown,"Carvings and jewels when polished, reddish brown pigments",30,70,40,20,5,50,30,40,0,5
+,Sterling Silver,,I,Alloy,Silver and Copper,"Tableware, decorative arts, jewelry",30,80,35,20,90,80,50,50,0,95
+Glowstone,Pentlandite,,I,Ore,"Nickel, bronze-yellow","Nickel, industrial catalysts, coins",35,70,40,20,15,65,30,40,0,10
+Limestone,Limestone,,I,Stone,"Softer, can have some minor nutrients (calcium), moderate beauty, susceptible to acid rain.","Construction, agriculture",40,50,50,20,15,70,50,60,10,30
+Bog-Iron,Cassiterite,,I,Ore,Tin - Dark Brown or Black,"Tin, solder, plating, chemical catalyst",40,80,45,25,10,60,35,45,0,10
+Slate,Slate,,I,Stone,"Splits easily (good for roofing/tiles), good weather resistance, moderate hardness.","Roofing, writing tablets",45,55,70,25,10,90,60,60,0,40
+Brass,Brass,,I,Alloy,Copper and Zinc,"Musical instruments, decorative, ammunition",45,65,40,30,80,80,50,60,0,60
+Marble,Marble,,I,Stone,"Moderate hardness, high beauty (sculpture, decorative), can be somewhat malleable for shaping but still brittle.","Sculptures, Monuments, construction",50,60,60,30,20,65,55,70,0,90
+Star-Splinter,Rutile,,I,Ore,"Titanium, reddish brown to black","Titanium, welding, silver/bright pigment, plastics",50,65,60,30,10,70,40,50,0,10
+,Duralumin,,I,Alloy,"copper, manganese. High Strength","aircrafts(high strength low weight). Climbing equipment, bicycles, etc.",55,40,50,30,60,90,65,50,0,30
+Obsidian,Obsidian,,I,Stone,"Extremely high sharpness potential (natural glass), lower hardness for blunting, very lightweight, high beauty (often used for primitive tools/jewelry)","Tools and Weapons, Super sharp tools, Jewelry",60,40,70,70,0,90,50,70,0,80
+Bronze,Bronze,,I,Alloy,Copper and Tin,"Decorative, machine parts with good wear resistance, boat/water proof stuff",60,70,50,45,70,85,55,65,0,65
+Deepstone,Basalt,,I,Stone,"Very dense and hard, good blunt potential, dark appearance.","Concrete, paving, mineral wool/insulation",65,75,85,35,5,95,45,85,0,30
+,Cast Iron,,I,Alloy,Iron with more Carbon,"Pipes, Engines, Cookware",65,70,60,20,10,60,35,80,0,20
+Granite,Granite,,I,Stone,"Very hard, good weather resistance, decent beauty, difficult to shape.","Construction, pacing, abrasion",70,70,80,40,5,95,40,80,0,60
+,Nichrome,,I,Alloy,Nickel and Chromium,"Resistors, electronics, high heat resistance",70,70,80,20,30,90,40,70,0,20
+Steel,Steel,,I,Alloy,"Iron and Carbon/Manganese, nickel - Strength and Versatility","Construction, cars, tools",75,70,70,60,50,70,40,70,0,30
+Quartz,Quartz,,I,Stone,"Very hard, very good weather resistance, high beauty (many gem varieties).","Jewelry, electronics, glass manufracturing/optics",80,60,90,50,0,98,55,90,0,70
+,Stainless Steel,,I,Alloy,"Iron, nickel, chromium","Medical tools, kitchenware",80,70,75,55,40,95,45,75,0,40
+,,,I,,,,,,,,,,,,,
+,,,I,,,,,,,,,,,,,
+,,,I,,,,,,,,,,,,,
+,,,I,,,,,,,,,,,,,
+,,,I,,,,,,,,,,,,,
+,,,I,,,,,,,,,,,,,
+,,,I,,,,,,,,,,,,,
+,,,I,,,,,,,,,,,,,
+,,,I,,,,,,,,,,,,,
+,,,I,,,,,,,,,,,,,
+,,,I,,,,,,,,,,,,,
+,,,I,,,,,,,,,,,,,
+,,,I,,,,,,,,,,,,,
+,,,I,,,,,,,,,,,,,
+,,,I,,,,,,,,,,,,,
+,,,I,,,,,,,,,,,,,
+,,,I,,,,,,,,,,,,,
+,,,I,,,,,,,,,,,,,
+,,,I,,,,,,,,,,,,,
+,,,I,,,,,,,,,,,,,
+,,,I,,,,,,,,,,,,,
+,,,I,,,,,,,,,,,,,
+,,,I,,,,,,,,,,,,,
+,,,I,,,,,,,,,,,,,
+,,,I,,,,,,,,,,,,,

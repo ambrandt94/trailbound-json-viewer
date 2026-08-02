@@ -1,0 +1,45 @@
+{
+    "datasets":  [
+                     {
+                         "idField":  "id",
+                         "titleField":  "name",
+                         "id":  "skills",
+                         "defaultSort":  "name",
+                         "label":  "Skills",
+                         "description":  "Profession skills, subskills, and shared common skills for character progression.",
+                         "icon":  "psychology",
+                         "descriptionField":  "description",
+                         "path":  "data/skills.json",
+                         "tagField":  "tags",
+                         "recordKindField":  "kind"
+                     },
+                     {
+                         "idField":  "id",
+                         "titleField":  "name",
+                         "id":  "materials",
+                         "defaultSort":  "name",
+                         "label":  "Materials",
+                         "description":  "Craft and build materials with ItemProperty-style typed property bindings.",
+                         "icon":  "category",
+                         "descriptionField":  "description",
+                         "path":  "data/materials.json",
+                         "tagField":  "tags",
+                         "recordKindField":  "category"
+                     },
+                     {
+                         "idField":  "id",
+                         "titleField":  "name",
+                         "id":  "item-properties",
+                         "defaultSort":  "name",
+                         "label":  "Item Properties",
+                         "description":  "Global ItemProperty definitions: value types, ranges, enum ladders, and formula/effect hooks.",
+                         "icon":  "tune",
+                         "descriptionField":  "description",
+                         "path":  "data/item-properties.json",
+                         "tagField":  "tags",
+                         "recordKindField":  "valueType"
+                     }
+                 ],
+    "appName":  "Trailbound Data Viewer",
+    "version":  1
+}
