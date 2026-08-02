@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:pages": "ng build --configuration production --base-href /trailbound-json-viewer/",
     "watch": "ng build --watch --configuration development",
     "generate:skills": "node scripts/generate-skills.mjs",
     "generate:materials": "node scripts/generate-materials.mjs",

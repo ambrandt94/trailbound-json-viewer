@@ -1,6 +1,12 @@
 # Trailbound Data Viewer
 
-Angular tool for browsing, filtering, tagging, comparing, and visualizing Trailbound JSON datasets. Skills are the first catalog category; add more by dropping JSON under `public/data/` and registering them in `public/data/catalog.json`.
+Angular tool for browsing, filtering, tagging, comparing, and visualizing Trailbound JSON datasets. Skills, materials, and item properties ship as the first catalog categories; add more by dropping JSON under `public/data/` and registering them in `public/data/catalog.json`.
+
+## Live site
+
+https://ambrandt94.github.io/trailbound-json-viewer/
+
+Deployed from `main` via GitHub Actions (`.github/workflows/deploy-pages.yml`). In the repo **Settings → Pages**, set **Source** to **GitHub Actions** (not “Deploy from a branch”).
 
 ## Run
 
@@ -10,6 +16,12 @@ npm start
 ```
 
 Open `http://localhost:4200/`.
+
+Production / Pages build:
+
+```bash
+npm run build:pages
+```
 
 ## Data layout
 
