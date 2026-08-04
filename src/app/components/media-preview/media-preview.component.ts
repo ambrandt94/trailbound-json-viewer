@@ -216,59 +216,67 @@ export type MediaPreviewLayout = 'split' | 'stack' | 'model-only' | 'images-only
         role="dialog"
         aria-modal="true"
         aria-label="Enlarged reference image"
-        (click)="closeLightbox()"
       >
         <button
-          mat-icon-button
           type="button"
-          class="lightbox-close"
-          (click)="closeLightbox()"
-          matTooltip="Close"
+          class="lightbox-backdrop"
           aria-label="Close enlarged view"
-        >
-          <mat-icon>close</mat-icon>
-        </button>
+          (click)="closeLightbox()"
+        ></button>
 
-        <button
-          mat-icon-button
-          type="button"
-          class="lightbox-nav prev"
-          (click)="prev($event)"
-          [disabled]="images.length < 2"
-          matTooltip="Previous image"
-          aria-label="Previous image"
-        >
-          <mat-icon>chevron_left</mat-icon>
-        </button>
+        <div class="lightbox-ui">
+          <button
+            mat-icon-button
+            type="button"
+            class="lightbox-close"
+            (click)="closeLightbox()"
+            matTooltip="Close"
+            aria-label="Close enlarged view"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
 
-        <figure class="lightbox-frame" (click)="$event.stopPropagation()">
-          <img
-            [src]="activeImage.url"
-            [alt]="activeImage.alt || activeImage.caption || 'Reference image'"
-          />
-          @if (activeImage.caption) {
-            <figcaption>
-              <span>{{ activeImage.caption }}</span>
-              <span class="lightbox-count">{{ activeIndex + 1 }} / {{ images.length }}</span>
-            </figcaption>
-          } @else if (images.length > 1) {
-            <figcaption>
-              <span class="lightbox-count">{{ activeIndex + 1 }} / {{ images.length }}</span>
-            </figcaption>
-          }
-        </figure>
+          <button
+            mat-icon-button
+            type="button"
+            class="lightbox-nav prev"
+            (click)="prev($event)"
+            [disabled]="images.length < 2"
+            matTooltip="Previous image"
+            aria-label="Previous image"
+          >
+            <mat-icon>chevron_left</mat-icon>
+          </button>
 
-        <button
-          mat-icon-button
-          type="button"
-          class="lightbox-nav next"
-          (click)="next($event)"
-          [disabled]="images.length < 2"
-          matTooltip="Next image"
-          aria-label="Next image"
-        >
-          <mat-icon>chevron_right</mat-icon>
-        </button>
+          <figure class="lightbox-frame">
+            <img
+              [src]="activeImage.url"
+              [alt]="activeImage.alt || activeImage.caption || 'Reference image'"
+            />
+            @if (activeImage.caption) {
+              <figcaption>
+                <span>{{ activeImage.caption }}</span>
+                <span class="lightbox-count">{{ activeIndex + 1 }} / {{ images.length }}</span>
+              </figcaption>
+            } @else if (images.length > 1) {
+              <figcaption>
+                <span class="lightbox-count">{{ activeIndex + 1 }} / {{ images.length }}</span>
+              </figcaption>
+            }
+          </figure>
+
+          <button
+            mat-icon-button
+            type="button"
+            class="lightbox-nav next"
+            (click)="next($event)"
+            [disabled]="images.length < 2"
+            matTooltip="Next image"
+            aria-label="Next image"
+          >
+            <mat-icon>chevron_right</mat-icon>
+          </button>
+        </div>
       </div>
     }
   `,
@@ -527,14 +535,34 @@ export type MediaPreviewLayout = 'split' | 'stack' | 'model-only' | 'images-only
       position: fixed;
       inset: 0;
       z-index: 1200;
+    }
+
+    .lightbox-backdrop {
+      position: absolute;
+      inset: 0;
+      border: 0;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      background: color-mix(in srgb, #0c0e12 88%, transparent);
+      backdrop-filter: blur(8px);
+    }
+
+    .lightbox-ui {
+      position: relative;
+      z-index: 1;
       display: grid;
       grid-template-columns: auto minmax(0, 1fr) auto;
       align-items: center;
       gap: 0.35rem;
+      height: 100%;
       padding: 2.5rem 0.75rem 1.25rem;
-      background: color-mix(in srgb, #0c0e12 88%, transparent);
-      backdrop-filter: blur(8px);
       box-sizing: border-box;
+      pointer-events: none;
+    }
+
+    .lightbox-ui > * {
+      pointer-events: auto;
     }
 
     .lightbox-close {
@@ -553,11 +581,14 @@ export type MediaPreviewLayout = 'split' | 'stack' | 'model-only' | 'images-only
     .lightbox-frame {
       margin: 0;
       min-width: 0;
+      justify-self: center;
       display: flex;
       flex-direction: column;
       align-items: center;
       gap: 0.65rem;
       max-height: 100%;
+      width: fit-content;
+      max-width: 100%;
     }
 
     .lightbox-frame img {
@@ -605,7 +636,7 @@ export type MediaPreviewLayout = 'split' | 'stack' | 'model-only' | 'images-only
         max-height: min(18.5rem, calc(42vh - 0.7rem));
       }
 
-      .lightbox {
+      .lightbox-ui {
         grid-template-columns: auto auto;
         grid-template-rows: minmax(0, 1fr) auto;
         justify-content: center;
