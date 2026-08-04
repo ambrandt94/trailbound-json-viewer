@@ -11,10 +11,13 @@ import {
   JsonValue,
   LoadedDataset,
 } from '../models/catalog.models';
+import { extractRecordMedia, mediaImagesToOverrides } from '../models/media.models';
+import { RecordEditsService } from './record-edits.service';
 
 @Injectable({ providedIn: 'root' })
 export class CatalogService {
   private readonly http = inject(HttpClient);
+  private readonly edits = inject(RecordEditsService);
 
   readonly catalog = signal<CatalogManifest | null>(null);
   readonly activeDatasetId = signal<string | null>(null);
@@ -39,12 +42,17 @@ export class CatalogService {
   });
 
   readonly filteredRecords = computed(() => {
+    // Recompute when draft/saved tag overrides change.
+    this.edits.draft();
+    this.edits.committed();
     const dataset = this.activeDataset();
     if (!dataset) return [];
     return this.applyFilters(dataset, this.filters());
   });
 
   readonly selectedRecords = computed(() => {
+    this.edits.draft();
+    this.edits.committed();
     const dataset = this.activeDataset();
     if (!dataset) return [];
     const ids = new Set(this.selectedIds());
@@ -118,6 +126,8 @@ export class CatalogService {
     try {
       const raw = await firstValueFrom(this.http.get<unknown>(definition.path));
       const loaded = this.normalizeDataset(definition, raw);
+      this.edits.applyCommittedToRecords(datasetId, loaded.records, definition);
+      loaded.allTags = this.collectAllTags(loaded.records, definition);
       this.loadedDatasets.update((map) => ({ ...map, [datasetId]: loaded }));
     } catch (err) {
       this.error.set(err instanceof Error ? err.message : `Failed to load ${datasetId}`);
@@ -179,8 +189,150 @@ export class CatalogService {
   getRecordTags(record: JsonRecord, definition?: DatasetDefinition): string[] {
     const field = definition?.tagField ?? this.activeDataset()?.definition.tagField ?? 'tags';
     const value = record[field];
+    const base = Array.isArray(value)
+      ? value.filter((t): t is string => typeof t === 'string')
+      : [];
+    const datasetId = this.activeDatasetId();
+    const id = this.getRecordId(record, definition);
+    if (datasetId && id) {
+      return this.edits.effectiveTags(datasetId, id, base);
+    }
+    return base;
+  }
+
+  /** Base tags on the in-memory record (last saved / source), ignoring draft. */
+  getStoredRecordTags(record: JsonRecord, definition?: DatasetDefinition): string[] {
+    const field = definition?.tagField ?? this.activeDataset()?.definition.tagField ?? 'tags';
+    const value = record[field];
     if (!Array.isArray(value)) return [];
     return value.filter((t): t is string => typeof t === 'string');
+  }
+
+  isRecordDirty(record: JsonRecord): boolean {
+    const datasetId = this.activeDatasetId();
+    if (!datasetId || !record) return false;
+    const id = this.getRecordId(record);
+    const baseImages = mediaImagesToOverrides(extractRecordMedia(record).images);
+    return this.edits.isRecordDirty(datasetId, id, this.getStoredRecordTags(record), baseImages);
+  }
+
+  addRecordTag(record: JsonRecord, tag: string): void {
+    const datasetId = this.activeDatasetId();
+    if (!datasetId) return;
+    this.edits.addTag(datasetId, this.getRecordId(record), this.getStoredRecordTags(record), tag);
+  }
+
+  removeRecordTag(record: JsonRecord, tag: string): void {
+    const datasetId = this.activeDatasetId();
+    if (!datasetId) return;
+    this.edits.removeTag(datasetId, this.getRecordId(record), this.getStoredRecordTags(record), tag);
+  }
+
+  addRecordImageIds(
+    record: JsonRecord,
+    imageIds: string[],
+    captions?: (string | undefined)[],
+  ): void {
+    const datasetId = this.activeDatasetId();
+    if (!datasetId || !imageIds.length) return;
+    const id = this.getRecordId(record);
+    const baseImages = mediaImagesToOverrides(extractRecordMedia(record).images);
+    this.edits.addImages(
+      datasetId,
+      id,
+      this.getStoredRecordTags(record),
+      baseImages,
+      imageIds,
+      captions,
+    );
+  }
+
+  removeRecordImage(record: JsonRecord, imageId: string): void {
+    const datasetId = this.activeDatasetId();
+    if (!datasetId) return;
+    const id = this.getRecordId(record);
+    const baseImages = mediaImagesToOverrides(extractRecordMedia(record).images);
+    this.edits.removeImage(datasetId, id, this.getStoredRecordTags(record), baseImages, imageId);
+  }
+
+  setRecordImageCaption(record: JsonRecord, imageId: string, caption: string): void {
+    const datasetId = this.activeDatasetId();
+    if (!datasetId) return;
+    const id = this.getRecordId(record);
+    const baseImages = mediaImagesToOverrides(extractRecordMedia(record).images);
+    this.edits.setImageCaption(
+      datasetId,
+      id,
+      this.getStoredRecordTags(record),
+      baseImages,
+      imageId,
+      caption,
+    );
+  }
+
+  saveRecordEdits(record: JsonRecord): void {
+    const datasetId = this.activeDatasetId();
+    if (!datasetId) return;
+    this.saveRecordEditsInDataset(datasetId, record);
+  }
+
+  /**
+   * Add a tag and persist immediately (for quick tagging outside edit mode).
+   * Works for any loaded dataset, not only the active one.
+   */
+  quickAddTag(datasetId: string, record: JsonRecord, tag: string): void {
+    const dataset = this.loadedDatasets()[datasetId];
+    if (!dataset) return;
+    const id = this.getRecordId(record, dataset.definition);
+    if (!id) return;
+    this.edits.addTag(datasetId, id, this.getStoredRecordTags(record, dataset.definition), tag);
+    this.saveRecordEditsInDataset(datasetId, record);
+  }
+
+  /** Tags for a record in a specific dataset (respects draft/committed overrides). */
+  getRecordTagsInDataset(datasetId: string, record: JsonRecord): string[] {
+    const dataset = this.loadedDatasets()[datasetId];
+    if (!dataset) return [];
+    const field = dataset.definition.tagField ?? 'tags';
+    const value = record[field];
+    const base = Array.isArray(value)
+      ? value.filter((t): t is string => typeof t === 'string')
+      : [];
+    const id = this.getRecordId(record, dataset.definition);
+    if (!id) return base;
+    return this.edits.effectiveTags(datasetId, id, base);
+  }
+
+  private saveRecordEditsInDataset(datasetId: string, record: JsonRecord): void {
+    const dataset = this.loadedDatasets()[datasetId];
+    if (!dataset) return;
+    const id = this.getRecordId(record, dataset.definition);
+    const override = this.edits.save(datasetId, id);
+    if (!override?.tags) return;
+
+    const tagField = dataset.definition.tagField ?? 'tags';
+    this.loadedDatasets.update((map) => {
+      const current = map[datasetId];
+      if (!current) return map;
+      const records = current.records.map((row) => {
+        if (this.getRecordId(row, current.definition) !== id) return row;
+        return { ...row, [tagField]: [...override.tags!] };
+      });
+      return {
+        ...map,
+        [datasetId]: {
+          ...current,
+          records,
+          allTags: this.collectAllTags(records, current.definition),
+        },
+      };
+    });
+  }
+
+  discardRecordEdits(record: JsonRecord): void {
+    const datasetId = this.activeDatasetId();
+    if (!datasetId) return;
+    this.edits.discard(datasetId, this.getRecordId(record));
   }
 
   getRecordDescription(record: JsonRecord, definition?: DatasetDefinition): string {
@@ -222,30 +374,39 @@ export class CatalogService {
     }
 
     const tagField = definition.tagField ?? 'tags';
-    const allTags = new Set<string>();
-    for (const record of records) {
-      for (const tag of this.getRecordTags(record, definition)) {
-        allTags.add(tag);
-      }
-      // Also discover tags if field differs but tags exists.
-      if (tagField !== 'tags') {
+    const allTags = this.collectAllTags(records, definition);
+
+    // Also discover tags if field differs but tags exists.
+    if (tagField !== 'tags') {
+      for (const record of records) {
         const fallback = record['tags'];
         if (Array.isArray(fallback)) {
           for (const tag of fallback) {
-            if (typeof tag === 'string') allTags.add(tag);
+            if (typeof tag === 'string' && !allTags.includes(tag)) allTags.push(tag);
           }
         }
       }
+      allTags.sort((a, b) => a.localeCompare(b));
     }
 
     return {
       definition,
       meta,
       records,
-      allTags: [...allTags].sort((a, b) => a.localeCompare(b)),
+      allTags,
       fieldStats: this.computeFieldStats(records),
       extras,
     };
+  }
+
+  private collectAllTags(records: JsonRecord[], definition: DatasetDefinition): string[] {
+    const allTags = new Set<string>();
+    for (const record of records) {
+      for (const tag of this.getStoredRecordTags(record, definition)) {
+        allTags.add(tag);
+      }
+    }
+    return [...allTags].sort((a, b) => a.localeCompare(b));
   }
 
   private computeFieldStats(records: JsonRecord[]): FieldStat[] {

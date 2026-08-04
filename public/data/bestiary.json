@@ -1,0 +1,247 @@
+{
+  "meta": {
+    "id": "bestiary",
+    "label": "Bestiary",
+    "version": 1,
+    "description": "Open-ended records for monsters and animals. Schema stays loose while entries are drafted; media (model + reference images) is the shared presentation hook.",
+    "sources": [
+      "Trailbound GDD / Skills (Animal Handling, Scouting, Tracking)",
+      "Oregon Trail caravan fantasy",
+      "Material Tables II (drop / harvest links)"
+    ],
+    "schemaNotes": [
+      "kind: animal | monster (filter field; more kinds welcome later)",
+      "media.modelUrl / media.images: optional; placeholders used when omitted",
+      "habitats, behaviors, drops, linkedSkills, notes: optional workshop fields",
+      "Additional keys render under Other fields until schema hardens"
+    ]
+  },
+  "records": [
+    {
+      "id": "trail-ox",
+      "name": "Trail Ox",
+      "kind": "animal",
+      "description": "Staple draft beast of the caravan column. Health and hitch reliability shape daily miles more than raw speed.",
+      "temperament": "Stoic",
+      "size": "Large",
+      "habitats": ["prairie", "trail camps", "settlement paddocks"],
+      "behaviors": [
+        "Pulls wagons when hitched and watered",
+        "Telegraphs exhaustion before collapse",
+        "Panics under predator pressure if unattended"
+      ],
+      "drops": ["ox-hide", "bone", "tallow"],
+      "linkedSkills": ["animal-handling", "tracking-animal", "endurance"],
+      "tags": ["animal", "draft", "caravan", "example", "generated"],
+      "source": "gdd-animal-handling",
+      "notes": "Injured ox slowing the column is a core Oregon Trail pressure fantasy.",
+      "media": {
+        "modelUrl": "assets/placeholders/placeholder.glb",
+        "posterUrl": "assets/placeholders/ref-01.svg",
+        "images": [
+          { "url": "assets/placeholders/ref-01.svg", "caption": "Draft silhouette", "alt": "Trail ox concept silhouette" },
+          { "url": "assets/placeholders/ref-02.svg", "caption": "Harness detail", "alt": "Harness and hitch detail" },
+          { "url": "assets/placeholders/ref-03.svg", "caption": "Camp paddock mock", "alt": "Ox at trail camp" }
+        ]
+      }
+    },
+    {
+      "id": "pack-horse",
+      "name": "Pack Horse",
+      "kind": "animal",
+      "description": "Lighter than oxen; preferred for scout detachments and specialty animal-handling expeditions.",
+      "temperament": "Alert",
+      "size": "Large",
+      "habitats": ["open trail", "foothills", "waystations"],
+      "behaviors": ["Carries packs without wagon frame", "Spooks at sudden scent", "Responds to calm / train checks"],
+      "drops": ["horse-hide", "sinew"],
+      "linkedSkills": ["animal-handling", "identification-animal", "perception"],
+      "tags": ["animal", "mount", "expedition", "example", "generated"],
+      "source": "gdd-animal-handling",
+      "notes": "Wisdom (Animal Handling) framing from the D&D lens without locking a class.",
+      "media": {
+        "modelUrl": "assets/placeholders/placeholder.glb",
+        "images": [
+          { "url": "assets/placeholders/ref-02.svg", "caption": "Pack frame" },
+          { "url": "assets/placeholders/ref-01.svg", "caption": "Side study" },
+          { "url": "assets/placeholders/ref-03.svg", "caption": "Trail pose" }
+        ]
+      }
+    },
+    {
+      "id": "prairie-wolf",
+      "name": "Prairie Wolf",
+      "kind": "animal",
+      "description": "Common predator threat beyond bandits. Hunts at dusk along wagon ruts and river cuts.",
+      "temperament": "Wary predator",
+      "size": "Medium",
+      "habitats": ["prairie", "river cuts", "night trail"],
+      "behaviors": ["Pack harassment of livestock", "Avoids large guarded camps", "Leaves readable track sign"],
+      "drops": ["wolf-pelt", "fang"],
+      "linkedSkills": ["tracking-animal", "scouting", "hunting"],
+      "tags": ["animal", "predator", "hunting", "example", "generated"],
+      "source": "gdd-scouting",
+      "notes": "Pairs with Tracking — Animal and hunting-for-the-party pressure.",
+      "media": {
+        "modelUrl": "assets/placeholders/placeholder.glb",
+        "images": [
+          { "url": "assets/placeholders/ref-03.svg", "caption": "Night hunt" },
+          { "url": "assets/placeholders/ref-01.svg", "caption": "Track study" },
+          { "url": "assets/placeholders/ref-02.svg", "caption": "Pelt reference" }
+        ]
+      }
+    },
+    {
+      "id": "trail-hare",
+      "name": "Trail Hare",
+      "kind": "animal",
+      "description": "Small game animal; scarce meat for rations when hunting minigames succeed.",
+      "temperament": "Skittish",
+      "size": "Tiny",
+      "habitats": ["grassland", "scrub", "trail margins"],
+      "behaviors": ["Bolts at approach", "Freeze posture in tall grass"],
+      "drops": ["hare-meat", "pelt-scrap"],
+      "linkedSkills": ["hunting", "tracking-animal", "cooking"],
+      "tags": ["animal", "game", "rations", "example", "generated", "no-media"],
+      "source": "gdd-hunting",
+      "notes": "Intentionally has no media block — tests empty media UI."
+    },
+    {
+      "id": "carrion-crow",
+      "name": "Carrion Crow",
+      "kind": "animal",
+      "description": "Scavenger that marks battle sites, spoiled stores, and predator kills — useful scouting telegraph.",
+      "temperament": "Opportunistic",
+      "size": "Small",
+      "habitats": ["anywhere with carrion", "settlement dumps", "battle scars"],
+      "behaviors": ["Circles over kills", "Raids unsecured rations"],
+      "drops": ["feather", "scrap-meat"],
+      "linkedSkills": ["scouting", "perception", "tracking-animal"],
+      "tags": ["animal", "scavenger", "signal", "example", "generated"],
+      "source": "gdd-scouting",
+      "media": {
+        "modelUrl": "assets/placeholders/placeholder.glb",
+        "images": [
+          { "url": "assets/placeholders/ref-02.svg", "caption": "Wing study" },
+          { "url": "assets/placeholders/ref-03.svg", "caption": "Flock cue" },
+          { "url": "assets/placeholders/ref-01.svg", "caption": "Perch" }
+        ]
+      }
+    },
+    {
+      "id": "wagon-haunt",
+      "name": "Wagon Haunt",
+      "kind": "monster",
+      "description": "Unnatural presence that clings to abandoned wagons and broken axles. Monster sign more than animal track.",
+      "temperament": "Hostile / territorial",
+      "size": "Medium",
+      "habitats": ["wrecked caravans", "forgotten ruts", "fog hollows"],
+      "behaviors": ["Manifests near rusted iron", "Disrupts sleep if camped too close", "Leaves frost-warped footprints"],
+      "drops": ["haunt-residue", "warped-nail"],
+      "linkedSkills": ["tracking-monster", "scouting", "trail-hardiness"],
+      "tags": ["monster", "haunt", "trail-threat", "example", "generated"],
+      "source": "gdd-tracking-monster",
+      "notes": "Oregon Trail note: predator threats beyond bandits — supernatural edge case.",
+      "media": {
+        "modelUrl": "assets/placeholders/placeholder.glb",
+        "images": [
+          { "url": "assets/placeholders/ref-03.svg", "caption": "Wreck manifestation" },
+          { "url": "assets/placeholders/ref-01.svg", "caption": "Sign study" },
+          { "url": "assets/placeholders/ref-02.svg", "caption": "Night camp" }
+        ]
+      }
+    },
+    {
+      "id": "ironroot-wurm",
+      "name": "Ironroot Wurm",
+      "kind": "monster",
+      "description": "Burrowing threat around rich ore seams. Miners read disturbed soil and metallic sheen as monster sign.",
+      "temperament": "Aggressive when disturbed",
+      "size": "Large",
+      "habitats": ["ore veins", "mine shafts", "ironroot outcrops"],
+      "behaviors": ["Collapses weak tunnels", "Attracted to vibration / pick strikes"],
+      "drops": ["wurm-plate", "ironroot-scrap"],
+      "linkedSkills": ["mining", "tracking-monster", "material-sense"],
+      "tags": ["monster", "mining", "ore", "example", "generated"],
+      "source": "gdd-mining",
+      "linkedMaterials": ["ironroot"],
+      "media": {
+        "modelUrl": "assets/placeholders/placeholder.glb",
+        "images": [
+          { "url": "assets/placeholders/ref-01.svg", "caption": "Burrow mouth" },
+          { "url": "assets/placeholders/ref-02.svg", "caption": "Plate texture" },
+          { "url": "assets/placeholders/ref-03.svg", "caption": "Vein context" }
+        ]
+      }
+    },
+    {
+      "id": "bog-lurker",
+      "name": "Bog Lurker",
+      "kind": "monster",
+      "description": "Amphibious ambusher in peat wetlands. Mud rings and broken reeds telegraph its rest sites.",
+      "temperament": "Patient ambush",
+      "size": "Large",
+      "habitats": ["peat bog", "marsh ford", "silt flats"],
+      "behaviors": ["Waits under peat mats", "Drags prey into soft ground"],
+      "drops": ["lurker-hide", "bog-bile"],
+      "linkedSkills": ["tracking-monster", "fordcraft", "foraging"],
+      "tags": ["monster", "wetland", "ambush", "example", "generated"],
+      "source": "gdd-fordcraft",
+      "linkedMaterials": ["peat", "bog-iron"],
+      "media": {
+        "modelUrl": "assets/placeholders/placeholder.glb",
+        "images": [
+          { "url": "assets/placeholders/ref-02.svg", "caption": "Peat camouflage" },
+          { "url": "assets/placeholders/ref-03.svg", "caption": "Ford hazard" },
+          { "url": "assets/placeholders/ref-01.svg", "caption": "Hide study" }
+        ]
+      }
+    },
+    {
+      "id": "emberfox",
+      "name": "Emberfox",
+      "kind": "animal",
+      "description": "Rare heat-tolerant fox associated with volcanic ash fields and amberspark finds. Borderline folk-monster in camp stories.",
+      "temperament": "Curious / elusive",
+      "size": "Small",
+      "habitats": ["ash fields", "volcanic foothills", "amberspark washes"],
+      "behaviors": ["Steals glowing scraps", "Avoids water crossings"],
+      "drops": ["ember-fur", "warm-ash"],
+      "linkedSkills": ["identification-animal", "foraging", "alchemy"],
+      "tags": ["animal", "rare", "volcanic", "example", "generated"],
+      "source": "generated",
+      "linkedMaterials": ["volcanic-ash", "amberspark"],
+      "media": {
+        "modelUrl": "assets/placeholders/placeholder.glb",
+        "images": [
+          { "url": "assets/placeholders/ref-01.svg", "caption": "Coat glow" },
+          { "url": "assets/placeholders/ref-02.svg", "caption": "Ash field" },
+          { "url": "assets/placeholders/ref-03.svg", "caption": "Camp tale art" }
+        ]
+      }
+    },
+    {
+      "id": "dust-mite-swarm",
+      "name": "Dust Mite Swarm",
+      "kind": "monster",
+      "description": "Hazardous particulate swarm kicked up from contaminated soil and chalk cuts. More environmental monster than beast.",
+      "temperament": "Mindless hazard",
+      "size": "Swarm",
+      "habitats": ["contaminated soil", "chalk cuts", "dry storm fronts"],
+      "behaviors": ["Chokes unmasked travelers", "Disperses in rain", "Clings to canvas"],
+      "drops": ["grit-sample", "filter-clog"],
+      "linkedSkills": ["trail-hardiness", "scouting", "alchemy"],
+      "tags": ["monster", "swarm", "hazard", "example", "generated"],
+      "source": "generated",
+      "linkedMaterials": ["contaminated-soil", "chalk-dust"],
+      "media": {
+        "modelUrl": "assets/placeholders/placeholder.glb",
+        "images": [
+          { "url": "assets/placeholders/ref-03.svg", "caption": "Storm front" },
+          { "url": "assets/placeholders/ref-01.svg", "caption": "Mask note" },
+          { "url": "assets/placeholders/ref-02.svg", "caption": "Soil sample" }
+        ]
+      }
+    }
+  ]
+}

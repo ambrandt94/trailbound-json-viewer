@@ -1,0 +1,44 @@
+{
+  "meta": {
+    "id": "music",
+    "label": "Music",
+    "version": 1,
+    "description": "Soundtrack and ambient cues with an in-viewer audio player. Open-ended records while the score catalog grows.",
+    "sources": [
+      "G:/My Drive/Projects/Trailbound/Music"
+    ],
+    "schemaNotes": [
+      "kind: theme | ambient | camp | combat | stinger (extensible)",
+      "audioUrl: path under assets/music/",
+      "mood, usage[], durationHint, notes: optional workshop fields"
+    ]
+  },
+  "records": [
+    {
+      "id": "campfire-by-the-old-trail",
+      "name": "Campfire By The Old Trail",
+      "kind": "ambient",
+      "description": "Warm campfire underscore for trail camps and quiet evening rests.",
+      "mood": "Warm · reflective",
+      "durationHint": "Loop-friendly ambient",
+      "usage": ["camp", "rest", "night"],
+      "audioUrl": "assets/music/campfire-by-the-old-trail.wav",
+      "tags": ["music", "ambient", "camp", "example"],
+      "source": "trailbound-music-folder",
+      "notes": "Sourced from the Trailbound Music Drive folder as a player test asset."
+    },
+    {
+      "id": "menu-theme",
+      "name": "Menu Theme",
+      "kind": "theme",
+      "description": "Title / menu identity cue for the Trailbound front end.",
+      "mood": "Inviting · trailbound",
+      "durationHint": "Theme cue",
+      "usage": ["main-menu", "title"],
+      "audioUrl": "assets/music/menu-theme.wav",
+      "tags": ["music", "theme", "menu", "example"],
+      "source": "trailbound-music-folder",
+      "notes": "Sourced from the Trailbound Music Drive folder as a player test asset."
+    }
+  ]
+}

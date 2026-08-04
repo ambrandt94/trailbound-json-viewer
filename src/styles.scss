@@ -101,3 +101,12 @@ textarea {
 .mat-mdc-form-field {
   width: 100%;
 }
+
+.music-tag-menu-panel.mat-mdc-menu-panel {
+  max-width: none;
+  border-radius: 14px;
+}
+
+.music-tag-menu-panel .mat-mdc-menu-content {
+  padding: 0;
+}

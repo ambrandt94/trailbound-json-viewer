@@ -6,6 +6,7 @@ export type JsonRecord = JsonObject;
 export type FontChoice = 'capriola' | 'poppins' | 'sen' | 'ubuntu';
 export type ThemeMode = 'light' | 'dark';
 export type DetailViewMode = 'presentation' | 'json';
+export type BrowseViewMode = 'list' | 'sheet';
 
 export interface DatasetDefinition {
   id: string;

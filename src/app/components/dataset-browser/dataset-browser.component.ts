@@ -11,9 +11,12 @@ import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { CatalogService } from '../../services/catalog.service';
+import { PreferencesService } from '../../services/preferences.service';
 import { RecordDetailComponent } from '../record-detail/record-detail.component';
 import { ComparePanelComponent } from '../compare-panel/compare-panel.component';
-import { JsonRecord } from '../../models/catalog.models';
+import { SheetViewComponent } from '../sheet-view/sheet-view.component';
+import { MusicMiniPlayerComponent } from '../music-mini-player/music-mini-player.component';
+import { JsonRecord, BrowseViewMode } from '../../models/catalog.models';
 
 @Component({
   selector: 'app-dataset-browser',
@@ -32,6 +35,8 @@ import { JsonRecord } from '../../models/catalog.models';
     MatProgressBarModule,
     RecordDetailComponent,
     ComparePanelComponent,
+    SheetViewComponent,
+    MusicMiniPlayerComponent,
   ],
   template: `
     @if (catalog.loading()) {
@@ -46,164 +51,197 @@ import { JsonRecord } from '../../models/catalog.models';
     }
 
     @if (dataset(); as ds) {
-      <div class="browser">
+      <div class="browser" [class.sheet-mode]="prefs.browseView() === 'sheet'">
         <aside class="filters">
-          <div class="dataset-meta">
-            <h2>{{ ds.definition.label }}</h2>
-            <p>{{ ds.definition.description || ds.meta?.['description'] || 'JSON dataset' }}</p>
-            <div class="stats">
-              <span
-                ><mat-icon>inventory_2</mat-icon> {{ filtered().length }} /
-                {{ ds.records.length }}</span
-              >
-              <span><mat-icon>sell</mat-icon> {{ ds.allTags.length }} tags</span>
-              <span><mat-icon>schema</mat-icon> {{ ds.fieldStats.length }} fields</span>
-            </div>
-          </div>
-
-          <mat-form-field appearance="outline" class="full">
-            <mat-label>Search</mat-label>
-            <mat-icon matPrefix>search</mat-icon>
-            <input
-              matInput
-              [ngModel]="filters().search"
-              (ngModelChange)="catalog.patchFilters({ search: $event })"
-              placeholder="Name, tag, id, or any field…"
-            />
-          </mat-form-field>
-
-          <div class="row">
-            <mat-form-field appearance="outline">
-              <mat-label>Kind</mat-label>
-              <mat-select
-                [ngModel]="filters().kind"
-                (ngModelChange)="catalog.patchFilters({ kind: $event })"
-              >
-                <mat-option value="all">All</mat-option>
-                @for (kind of catalog.kindOptions(); track kind) {
-                  <mat-option [value]="kind">{{ kind }}</mat-option>
-                }
-              </mat-select>
-            </mat-form-field>
-
-            <mat-form-field appearance="outline">
-              <mat-label>Sort</mat-label>
-              <mat-select
-                [ngModel]="filters().sortField"
-                (ngModelChange)="catalog.patchFilters({ sortField: $event })"
-              >
-                @for (field of sortableFields(); track field) {
-                  <mat-option [value]="field">{{ field }}</mat-option>
-                }
-              </mat-select>
-            </mat-form-field>
-          </div>
-
-          <div class="sort-dir">
-            <mat-button-toggle-group
-              [value]="filters().sortDirection"
-              (change)="catalog.patchFilters({ sortDirection: $event.value })"
-            >
-              <mat-button-toggle value="asc">
-                <mat-icon>arrow_upward</mat-icon> Asc
-              </mat-button-toggle>
-              <mat-button-toggle value="desc">
-                <mat-icon>arrow_downward</mat-icon> Desc
-              </mat-button-toggle>
-            </mat-button-toggle-group>
-
-            <mat-button-toggle-group
-              [value]="filters().tagMode"
-              (change)="catalog.patchFilters({ tagMode: $event.value })"
-            >
-              <mat-button-toggle value="any" matTooltip="Match any selected tag">Any</mat-button-toggle>
-              <mat-button-toggle value="all" matTooltip="Match all selected tags">All</mat-button-toggle>
-            </mat-button-toggle-group>
-          </div>
-
-          <div class="tag-block">
-            <div class="tag-header">
-              <h3>Tags</h3>
-              <button mat-button type="button" (click)="catalog.clearFilters()">
-                <mat-icon>filter_alt_off</mat-icon>
-                Reset
-              </button>
-            </div>
-            <mat-chip-set>
-              @for (tag of ds.allTags; track tag) {
-                <mat-chip
-                  [highlighted]="filters().tags.includes(tag)"
-                  (click)="catalog.toggleTagFilter(tag)"
+          <div class="filters-scroll">
+            <div class="dataset-meta">
+              <h2>{{ ds.definition.label }}</h2>
+              <p>{{ ds.definition.description || ds.meta?.['description'] || 'JSON dataset' }}</p>
+              <div class="stats">
+                <span
+                  ><mat-icon>inventory_2</mat-icon> {{ filtered().length }} /
+                  {{ ds.records.length }}</span
                 >
-                  {{ tag }}
-                </mat-chip>
-              }
-            </mat-chip-set>
+                <span><mat-icon>sell</mat-icon> {{ ds.allTags.length }} tags</span>
+                <span><mat-icon>schema</mat-icon> {{ ds.fieldStats.length }} fields</span>
+              </div>
+            </div>
+
+            <mat-button-toggle-group
+              class="browse-toggle"
+              [value]="prefs.browseView()"
+              (change)="onBrowseViewChange($event.value)"
+            >
+              <mat-button-toggle value="list">
+                <mat-icon>view_agenda</mat-icon>
+                List
+              </mat-button-toggle>
+              <mat-button-toggle value="sheet">
+                <mat-icon>table_chart</mat-icon>
+                Sheet
+              </mat-button-toggle>
+            </mat-button-toggle-group>
+
+            <mat-form-field appearance="outline" class="full">
+              <mat-label>Search</mat-label>
+              <mat-icon matPrefix>search</mat-icon>
+              <input
+                matInput
+                [ngModel]="filters().search"
+                (ngModelChange)="catalog.patchFilters({ search: $event })"
+                placeholder="Name, tag, id, or any field…"
+              />
+            </mat-form-field>
+
+            <div class="row">
+              <mat-form-field appearance="outline">
+                <mat-label>Kind</mat-label>
+                <mat-select
+                  [ngModel]="filters().kind"
+                  (ngModelChange)="catalog.patchFilters({ kind: $event })"
+                >
+                  <mat-option value="all">All</mat-option>
+                  @for (kind of catalog.kindOptions(); track kind) {
+                    <mat-option [value]="kind">{{ kind }}</mat-option>
+                  }
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="outline">
+                <mat-label>Sort</mat-label>
+                <mat-select
+                  [ngModel]="filters().sortField"
+                  (ngModelChange)="catalog.patchFilters({ sortField: $event })"
+                >
+                  @for (field of sortableFields(); track field) {
+                    <mat-option [value]="field">{{ field }}</mat-option>
+                  }
+                </mat-select>
+              </mat-form-field>
+            </div>
+
+            <div class="sort-dir">
+              <mat-button-toggle-group
+                [value]="filters().sortDirection"
+                (change)="catalog.patchFilters({ sortDirection: $event.value })"
+              >
+                <mat-button-toggle value="asc">
+                  <mat-icon>arrow_upward</mat-icon> Asc
+                </mat-button-toggle>
+                <mat-button-toggle value="desc">
+                  <mat-icon>arrow_downward</mat-icon> Desc
+                </mat-button-toggle>
+              </mat-button-toggle-group>
+
+              <mat-button-toggle-group
+                [value]="filters().tagMode"
+                (change)="catalog.patchFilters({ tagMode: $event.value })"
+              >
+                <mat-button-toggle value="any" matTooltip="Match any selected tag">Any</mat-button-toggle>
+                <mat-button-toggle value="all" matTooltip="Match all selected tags">All</mat-button-toggle>
+              </mat-button-toggle-group>
+            </div>
+
+            <div class="tag-block">
+              <div class="tag-header">
+                <h3>Tags</h3>
+                <button mat-button type="button" (click)="catalog.clearFilters()">
+                  <mat-icon>filter_alt_off</mat-icon>
+                  Reset
+                </button>
+              </div>
+              <mat-chip-set>
+                @for (tag of ds.allTags; track tag) {
+                  <mat-chip
+                    [highlighted]="filters().tags.includes(tag)"
+                    (click)="catalog.toggleTagFilter(tag)"
+                  >
+                    {{ tag }}
+                  </mat-chip>
+                }
+              </mat-chip-set>
+            </div>
+
+            <details class="schema">
+              <summary>
+                <mat-icon>insights</mat-icon>
+                Schema coverage
+              </summary>
+              <div class="schema-list">
+                @for (field of ds.fieldStats; track field.path) {
+                  <div class="schema-row">
+                    <span class="path">{{ field.path }}</span>
+                    <span class="type">{{ field.type }}</span>
+                    <span class="coverage">{{ (field.coverage * 100) | number: '1.0-0' }}%</span>
+                  </div>
+                }
+              </div>
+            </details>
           </div>
 
-          <details class="schema">
-            <summary>
-              <mat-icon>insights</mat-icon>
-              Schema coverage
-            </summary>
-            <div class="schema-list">
-              @for (field of ds.fieldStats; track field.path) {
-                <div class="schema-row">
-                  <span class="path">{{ field.path }}</span>
-                  <span class="type">{{ field.type }}</span>
-                  <span class="coverage">{{ (field.coverage * 100) | number: '1.0-0' }}%</span>
-                </div>
-              }
-            </div>
-          </details>
+          <app-music-mini-player class="sidebar-player" />
         </aside>
 
-        <section class="list-pane">
-          <div class="list">
-            @for (record of filtered(); track catalog.getRecordId(record)) {
-              <button
-                type="button"
-                class="record-card"
-                [class.active]="isSelected(record)"
-                [class.comparing]="isComparing(record)"
-                (click)="catalog.selectRecord(catalog.getRecordId(record))"
-              >
-                <div class="card-top">
-                  <div>
-                    <strong>{{ catalog.getRecordTitle(record) }}</strong>
-                    <span class="kind">{{ recordKind(record) }}</span>
+        @if (prefs.browseView() === 'sheet') {
+          <section class="sheet-pane">
+            <app-sheet-view
+              [records]="filtered()"
+              [definition]="ds.definition"
+              [selectedIds]="catalog.selectedIds()"
+              [compareIds]="catalog.compareIds()"
+              (select)="catalog.selectRecord($event)"
+              (openDetail)="openRecordDetail($event)"
+              (toggleCompare)="catalog.toggleCompare($event)"
+            />
+          </section>
+        } @else {
+          <section class="list-pane">
+            <div class="list">
+              @for (record of filtered(); track catalog.getRecordId(record)) {
+                <button
+                  type="button"
+                  class="record-card"
+                  [class.active]="isSelected(record)"
+                  [class.comparing]="isComparing(record)"
+                  (click)="catalog.selectRecord(catalog.getRecordId(record))"
+                >
+                  <div class="card-top">
+                    <div>
+                      <strong>{{ catalog.getRecordTitle(record) }}</strong>
+                      <span class="kind">{{ recordKind(record) }}</span>
+                    </div>
+                    <button
+                      mat-icon-button
+                      type="button"
+                      matTooltip="Toggle compare"
+                      (click)="$event.stopPropagation(); catalog.toggleCompare(catalog.getRecordId(record))"
+                    >
+                      <mat-icon>{{ isComparing(record) ? 'check_box' : 'check_box_outline_blank' }}</mat-icon>
+                    </button>
                   </div>
-                  <button
-                    mat-icon-button
-                    type="button"
-                    matTooltip="Toggle compare"
-                    (click)="$event.stopPropagation(); catalog.toggleCompare(catalog.getRecordId(record))"
-                  >
-                    <mat-icon>{{ isComparing(record) ? 'check_box' : 'check_box_outline_blank' }}</mat-icon>
-                  </button>
+                  <p>{{ catalog.getRecordDescription(record) }}</p>
+                  <div class="card-tags">
+                    @for (tag of catalog.getRecordTags(record).slice(0, 5); track tag) {
+                      <span>{{ tag }}</span>
+                    }
+                  </div>
+                </button>
+              } @empty {
+                <div class="empty-list">
+                  <mat-icon>search_off</mat-icon>
+                  <p>No records match the current filters.</p>
                 </div>
-                <p>{{ catalog.getRecordDescription(record) }}</p>
-                <div class="card-tags">
-                  @for (tag of catalog.getRecordTags(record).slice(0, 5); track tag) {
-                    <span>{{ tag }}</span>
-                  }
-                </div>
-              </button>
-            } @empty {
-              <div class="empty-list">
-                <mat-icon>search_off</mat-icon>
-                <p>No records match the current filters.</p>
-              </div>
-            }
-          </div>
-        </section>
+              }
+            </div>
+          </section>
 
-        <section class="detail-pane">
-          <app-record-detail [record]="selectedRecord()" />
-          <div class="compare-wrap">
-            <app-compare-panel />
-          </div>
-        </section>
+          <section class="detail-pane">
+            <app-record-detail [record]="selectedRecord()" />
+            <div class="compare-wrap">
+              <app-compare-panel />
+            </div>
+          </section>
+        }
       </div>
     }
   `,
@@ -233,9 +271,14 @@ import { JsonRecord } from '../../models/catalog.models';
       box-sizing: border-box;
     }
 
+    .browser.sheet-mode {
+      grid-template-columns: minmax(16rem, 22rem) minmax(0, 1fr);
+    }
+
     .filters,
     .list-pane,
-    .detail-pane {
+    .detail-pane,
+    .sheet-pane {
       background: var(--tb-panel);
       border: 1px solid color-mix(in srgb, var(--tb-ink) 10%, transparent);
       border-radius: 14px;
@@ -243,11 +286,56 @@ import { JsonRecord } from '../../models/catalog.models';
       min-height: 0;
     }
 
+    .sheet-pane {
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
     .filters {
       padding: 1rem;
       display: flex;
       flex-direction: column;
       gap: 0.75rem;
+      overflow: hidden;
+    }
+
+    .filters-scroll {
+      flex: 1;
+      min-height: 0;
+      overflow: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .sidebar-player {
+      flex-shrink: 0;
+      margin-top: auto;
+    }
+
+    .dataset-meta,
+    .browse-toggle,
+    .full,
+    .row,
+    .sort-dir,
+    .schema {
+      flex-shrink: 0;
+    }
+
+    .browse-toggle {
+      width: 100%;
+      min-height: 2.5rem;
+    }
+
+    .browse-toggle mat-button-toggle {
+      flex: 1;
+    }
+
+    .tag-block {
+      flex: 1 1 auto;
+      min-height: 6rem;
+      overflow: auto;
     }
 
     .dataset-meta h2 {
@@ -456,12 +544,14 @@ import { JsonRecord } from '../../models/catalog.models';
     }
 
     @media (max-width: 1100px) {
-      .browser {
+      .browser,
+      .browser.sheet-mode {
         grid-template-columns: 1fr;
         height: auto;
       }
 
-      .list-pane {
+      .list-pane,
+      .sheet-pane {
         max-height: 28rem;
       }
     }
@@ -469,6 +559,7 @@ import { JsonRecord } from '../../models/catalog.models';
 })
 export class DatasetBrowserComponent {
   readonly catalog = inject(CatalogService);
+  readonly prefs = inject(PreferencesService);
   readonly dataset = this.catalog.activeDataset;
   readonly filtered = this.catalog.filteredRecords;
   readonly filters = this.catalog.filters;
@@ -503,5 +594,16 @@ export class DatasetBrowserComponent {
     const field = this.dataset()?.definition.recordKindField ?? 'kind';
     const value = record[field];
     return typeof value === 'string' ? value : 'record';
+  }
+
+  openRecordDetail(id: string): void {
+    this.catalog.selectRecord(id);
+    this.prefs.setBrowseView('list');
+  }
+
+  onBrowseViewChange(value: string | undefined | null): void {
+    if (value === 'list' || value === 'sheet') {
+      this.prefs.setBrowseView(value as BrowseViewMode);
+    }
   }
 }

@@ -1,0 +1,426 @@
+{
+  "meta": {
+    "id": "items",
+    "label": "Item Database",
+    "version": 1,
+    "description": "Open-ended item archetypes inspired by ChainLink ItemBase / ItemRecipe: properties, craft steps, and media. Schema stays flexible while authoring.",
+    "sources": [
+      "ChainLink ItemPropertyDatabase (ItemBase, ItemRecipe, ItemPropertyValue)",
+      "For Review/ITEM_PROPERTY_SYSTEM.md",
+      "Trailbound.md / Crafting and Item Attributes",
+      "Material Tables II"
+    ],
+    "schemaNotes": [
+      "kind: tool | food | material-item | consumable | component (extensible)",
+      "properties[]: ItemPropertyValue-like rows (propertyId, valueType, value)",
+      "recipe.steps[]: loose RecipeStep sketches (name, laborRequirement, requirements)",
+      "addressableAsset: optional Unity addressable / prefab hint",
+      "media optional; placeholders used for model + reference carousel testing"
+    ]
+  },
+  "records": [
+    {
+      "id": "trail-ration",
+      "name": "Trail Ration",
+      "kind": "food",
+      "category": "provisions",
+      "description": "Daily travel food. Doneness and seasoning come from cooking performance rather than a single quality score.",
+      "addressableAsset": "items/trail-ration",
+      "properties": [
+        { "propertyId": "doneness", "name": "Doneness", "valueType": "Enum", "value": "Cooked" },
+        { "propertyId": "base-value", "name": "Base Value", "valueType": "Float", "value": 4 },
+        { "propertyId": "durability", "name": "Durability", "valueType": "Float", "value": 20 }
+      ],
+      "recipe": {
+        "id": "cook-trail-ration",
+        "name": "Cook Trail Ration",
+        "steps": [
+          {
+            "name": "Prep ingredients",
+            "laborRequirement": 1,
+            "requirements": ["wild-berries or hare-meat", "seasoning-leaf (optional)"]
+          },
+          {
+            "name": "Heat control",
+            "laborRequirement": 2,
+            "requirements": ["camp heat source", "prop:doneness within edible band"]
+          }
+        ]
+      },
+      "linkedSkills": ["cooking", "organization"],
+      "linkedMaterials": [],
+      "tags": ["food", "caravan", "example", "generated"],
+      "source": "gdd-cooking",
+      "notes": "Preference-driven doneness ladder: Raw → Cooked → Burnt.",
+      "media": {
+        "modelUrl": "assets/placeholders/placeholder.glb",
+        "images": [
+          { "url": "assets/placeholders/ref-01.svg", "caption": "Packed ration" },
+          { "url": "assets/placeholders/ref-02.svg", "caption": "Skillet stage" },
+          { "url": "assets/placeholders/ref-03.svg", "caption": "Serve mock" }
+        ]
+      }
+    },
+    {
+      "id": "camp-skillet",
+      "name": "Camp Skillet",
+      "kind": "tool",
+      "category": "camp",
+      "description": "Cooking implement that gates grilling nodes on the Cooking grid fantasy.",
+      "addressableAsset": "items/camp-skillet",
+      "properties": [
+        { "propertyId": "durability", "name": "Durability", "valueType": "Float", "value": 70 },
+        { "propertyId": "base-value", "name": "Base Value", "valueType": "Float", "value": 18 },
+        { "propertyId": "weather-resistance", "name": "Weather Resistance", "valueType": "Float", "value": 55 }
+      ],
+      "recipe": {
+        "id": "smith-camp-skillet",
+        "name": "Forge Camp Skillet",
+        "steps": [
+          {
+            "name": "Form blank",
+            "laborRequirement": 3,
+            "requirements": ["cast-iron or bronze plate", "prop:malleability sufficient"]
+          },
+          {
+            "name": "Handle rivet",
+            "laborRequirement": 1,
+            "requirements": ["hardwood grip", "rivets"]
+          }
+        ]
+      },
+      "linkedSkills": ["cooking", "smithing"],
+      "linkedMaterials": ["cast-iron", "bronze"],
+      "tags": ["tool", "cooking", "example", "generated"],
+      "source": "gdd-cooking",
+      "media": {
+        "modelUrl": "assets/items/camp-skillet/camp-skillet.glb",
+        "images": [
+          { "url": "assets/items/camp-skillet/reference.png", "caption": "Low-poly cast-iron concept sheet" },
+          { "url": "assets/placeholders/ref-02.svg", "caption": "Top view (placeholder)" },
+          { "url": "assets/placeholders/ref-03.svg", "caption": "Over fire (placeholder)" }
+        ]
+      }
+    },
+    {
+      "id": "iron-pickaxe",
+      "name": "Iron Pickaxe",
+      "kind": "tool",
+      "category": "mining",
+      "description": "Primary gather tool for ore deposits. Sharpness and durability wear with use.",
+      "addressableAsset": "items/iron-pickaxe",
+      "properties": [
+        { "propertyId": "sharpness", "name": "Sharpness", "valueType": "Float", "value": 62 },
+        { "propertyId": "durability", "name": "Durability", "valueType": "Float", "value": 80 },
+        { "propertyId": "base-value", "name": "Base Value", "valueType": "Float", "value": 28 }
+      ],
+      "recipe": {
+        "id": "smith-iron-pickaxe",
+        "name": "Smith Iron Pickaxe",
+        "steps": [
+          {
+            "name": "Forge head",
+            "laborRequirement": 4,
+            "requirements": ["bog-iron or steel billet", "prop:tensile-strength band"]
+          },
+          {
+            "name": "Haft",
+            "laborRequirement": 1,
+            "requirements": ["oak haft", "wedge"]
+          }
+        ]
+      },
+      "linkedSkills": ["smithing", "mining"],
+      "linkedMaterials": ["bog-iron", "steel"],
+      "tags": ["tool", "mining", "example", "generated"],
+      "source": "gdd-mining",
+      "media": {
+        "modelUrl": "assets/placeholders/placeholder.glb",
+        "images": [
+          { "url": "assets/placeholders/ref-01.svg", "caption": "Head profile" },
+          { "url": "assets/placeholders/ref-03.svg", "caption": "Haft join" },
+          { "url": "assets/placeholders/ref-02.svg", "caption": "Wear stages" }
+        ]
+      }
+    },
+    {
+      "id": "ox-hide-pack",
+      "name": "Ox Hide Pack",
+      "kind": "component",
+      "category": "leather",
+      "description": "Worked pack from trail ox hide. Leatherworking output used in caravan loadouts.",
+      "addressableAsset": "items/ox-hide-pack",
+      "properties": [
+        { "propertyId": "durability", "name": "Durability", "valueType": "Float", "value": 65 },
+        { "propertyId": "beauty", "name": "Beauty", "valueType": "Float", "value": 35 },
+        { "propertyId": "weather-resistance", "name": "Weather Resistance", "valueType": "Float", "value": 70 }
+      ],
+      "recipe": {
+        "id": "leather-ox-hide-pack",
+        "name": "Stitch Ox Hide Pack",
+        "steps": [
+          {
+            "name": "Cut panels",
+            "laborRequirement": 2,
+            "requirements": ["ox-hide", "pattern"]
+          },
+          {
+            "name": "Stitch & seal",
+            "laborRequirement": 3,
+            "requirements": ["sinew thread", "wax"]
+          }
+        ]
+      },
+      "linkedSkills": ["leatherworking", "animal-handling"],
+      "linkedMaterials": [],
+      "tags": ["leather", "caravan", "example", "generated"],
+      "source": "gdd-leatherworking",
+      "notes": "Links to generate-materials ox-hide draft and Animal Handling drops.",
+      "media": {
+        "modelUrl": "assets/placeholders/placeholder.glb",
+        "images": [
+          { "url": "assets/placeholders/ref-02.svg", "caption": "Closed pack" },
+          { "url": "assets/placeholders/ref-01.svg", "caption": "Stitch detail" },
+          { "url": "assets/placeholders/ref-03.svg", "caption": "On ox harness" }
+        ]
+      }
+    },
+    {
+      "id": "oak-plank",
+      "name": "Oak Plank",
+      "kind": "material-item",
+      "category": "wood",
+      "description": "Milled hardwood stock for furniture, cart frames, and structural joins.",
+      "addressableAsset": "items/oak-plank",
+      "properties": [
+        { "propertyId": "durability", "name": "Durability", "valueType": "Float", "value": 58 },
+        { "propertyId": "beauty", "name": "Beauty", "valueType": "Float", "value": 40 },
+        { "propertyId": "base-value", "name": "Base Value", "valueType": "Float", "value": 9 }
+      ],
+      "recipe": {
+        "id": "mill-oak-plank",
+        "name": "Mill Oak Plank",
+        "steps": [
+          {
+            "name": "Square timber",
+            "laborRequirement": 2,
+            "requirements": ["oak-timber from Oak Stand"]
+          },
+          {
+            "name": "Plane face",
+            "laborRequirement": 1,
+            "requirements": ["plane", "prop:cohesion intact"]
+          }
+        ]
+      },
+      "linkedSkills": ["woodcutting", "carpentry", "wagonwright"],
+      "linkedMaterials": [],
+      "tags": ["wood", "component", "example", "generated"],
+      "source": "gdd-woodcutting",
+      "media": {
+        "modelUrl": "assets/placeholders/placeholder.glb",
+        "images": [
+          { "url": "assets/placeholders/ref-03.svg", "caption": "Grain face" },
+          { "url": "assets/placeholders/ref-02.svg", "caption": "Stack" },
+          { "url": "assets/placeholders/ref-01.svg", "caption": "Join test" }
+        ]
+      }
+    },
+    {
+      "id": "healing-poultice",
+      "name": "Healing Poultice",
+      "kind": "consumable",
+      "category": "medicine",
+      "description": "Field dressing from forage herbs. Toxicity risk if identification fails.",
+      "addressableAsset": "items/healing-poultice",
+      "properties": [
+        { "propertyId": "toxicity", "name": "Toxicity", "valueType": "Float", "value": 12 },
+        { "propertyId": "base-value", "name": "Base Value", "valueType": "Float", "value": 14 },
+        { "propertyId": "durability", "name": "Durability", "valueType": "Float", "value": 15 }
+      ],
+      "recipe": {
+        "id": "brew-healing-poultice",
+        "name": "Prepare Healing Poultice",
+        "steps": [
+          {
+            "name": "Identify herbs",
+            "laborRequirement": 1,
+            "requirements": ["trail-herbs", "skill:foraging or alchemy"]
+          },
+          {
+            "name": "Mash & bind",
+            "laborRequirement": 1,
+            "requirements": ["clean cloth", "water"]
+          }
+        ]
+      },
+      "linkedSkills": ["foraging", "alchemy"],
+      "linkedMaterials": [],
+      "tags": ["consumable", "medicine", "example", "generated"],
+      "source": "gdd-alchemy",
+      "media": {
+        "modelUrl": "assets/placeholders/placeholder.glb",
+        "images": [
+          { "url": "assets/placeholders/ref-01.svg", "caption": "Wrapped cake" },
+          { "url": "assets/placeholders/ref-02.svg", "caption": "Herb mash" },
+          { "url": "assets/placeholders/ref-03.svg", "caption": "Apply note" }
+        ]
+      }
+    },
+    {
+      "id": "wagon-axle",
+      "name": "Wagon Axle",
+      "kind": "component",
+      "category": "wagon",
+      "description": "Critical caravan spare. Failure mid-journey is classic trail disaster fantasy.",
+      "addressableAsset": "items/wagon-axle",
+      "properties": [
+        { "propertyId": "durability", "name": "Durability", "valueType": "Float", "value": 85 },
+        { "propertyId": "base-value", "name": "Base Value", "valueType": "Float", "value": 45 },
+        { "propertyId": "weather-resistance", "name": "Weather Resistance", "valueType": "Float", "value": 50 }
+      ],
+      "recipe": {
+        "id": "craft-wagon-axle",
+        "name": "Craft Wagon Axle",
+        "steps": [
+          {
+            "name": "Turn shaft",
+            "laborRequirement": 4,
+            "requirements": ["oak-plank or hardwood blank"]
+          },
+          {
+            "name": "Band metal tips",
+            "laborRequirement": 2,
+            "requirements": ["iron banding", "prop:tensile-strength"]
+          }
+        ]
+      },
+      "linkedSkills": ["wagonwright", "carpentry", "smithing"],
+      "linkedMaterials": ["cast-iron", "steel"],
+      "tags": ["wagon", "spare", "example", "generated"],
+      "source": "gdd-caravan",
+      "media": {
+        "modelUrl": "assets/placeholders/placeholder.glb",
+        "images": [
+          { "url": "assets/placeholders/ref-02.svg", "caption": "Shaft" },
+          { "url": "assets/placeholders/ref-03.svg", "caption": "Banded tip" },
+          { "url": "assets/placeholders/ref-01.svg", "caption": "Under wagon" }
+        ]
+      }
+    },
+    {
+      "id": "trail-torch",
+      "name": "Trail Torch",
+      "kind": "tool",
+      "category": "light",
+      "description": "Portable light for night travel and cave mining. Fuel quality changes burn time.",
+      "addressableAsset": "items/trail-torch",
+      "properties": [
+        { "propertyId": "durability", "name": "Durability", "valueType": "Float", "value": 25 },
+        { "propertyId": "base-value", "name": "Base Value", "valueType": "Float", "value": 3 },
+        { "propertyId": "weather-resistance", "name": "Weather Resistance", "valueType": "Float", "value": 30 }
+      ],
+      "recipe": {
+        "id": "craft-trail-torch",
+        "name": "Bind Trail Torch",
+        "steps": [
+          {
+            "name": "Wrap head",
+            "laborRequirement": 0.5,
+            "requirements": ["cloth scrap", "peat or resin fuel"]
+          }
+        ]
+      },
+      "linkedSkills": ["scouting", "mining", "fire-tending"],
+      "linkedMaterials": ["peat"],
+      "tags": ["tool", "light", "example", "generated", "no-media"],
+      "source": "generated",
+      "notes": "Intentionally has no media block — tests empty media UI."
+    },
+    {
+      "id": "steel-knife",
+      "name": "Steel Knife",
+      "kind": "tool",
+      "category": "blade",
+      "description": "General camp blade for butchery, forage, and craft. Sharpness drives performance.",
+      "addressableAsset": "items/steel-knife",
+      "properties": [
+        { "propertyId": "sharpness", "name": "Sharpness", "valueType": "Float", "value": 74 },
+        { "propertyId": "durability", "name": "Durability", "valueType": "Float", "value": 72 },
+        { "propertyId": "beauty", "name": "Beauty", "valueType": "Float", "value": 28 },
+        { "propertyId": "base-value", "name": "Base Value", "valueType": "Float", "value": 22 }
+      ],
+      "recipe": {
+        "id": "smith-steel-knife",
+        "name": "Smith Steel Knife",
+        "steps": [
+          {
+            "name": "Forge & quench",
+            "laborRequirement": 3,
+            "requirements": ["steel blank", "prop:refractory-index for heat"]
+          },
+          {
+            "name": "Haft & hone",
+            "laborRequirement": 1,
+            "requirements": ["handle material", "abrasive stone"]
+          }
+        ]
+      },
+      "linkedSkills": ["smithing", "cooking", "foraging"],
+      "linkedMaterials": ["steel"],
+      "tags": ["tool", "blade", "example", "generated"],
+      "source": "gdd-smithing",
+      "media": {
+        "modelUrl": "assets/placeholders/placeholder.glb",
+        "images": [
+          { "url": "assets/placeholders/ref-01.svg", "caption": "Blade profile" },
+          { "url": "assets/placeholders/ref-02.svg", "caption": "Haft" },
+          { "url": "assets/placeholders/ref-03.svg", "caption": "Sheath" }
+        ]
+      }
+    },
+    {
+      "id": "travel-bread",
+      "name": "Travel Bread",
+      "kind": "food",
+      "category": "provisions",
+      "description": "Baking subskill output: dense loaf meant to survive wagon miles before spoilage.",
+      "addressableAsset": "items/travel-bread",
+      "properties": [
+        { "propertyId": "doneness", "name": "Doneness", "valueType": "Enum", "value": "Cooked" },
+        { "propertyId": "beauty", "name": "Beauty", "valueType": "Float", "value": 22 },
+        { "propertyId": "base-value", "name": "Base Value", "valueType": "Float", "value": 6 },
+        { "propertyId": "durability", "name": "Durability", "valueType": "Float", "value": 35 }
+      ],
+      "recipe": {
+        "id": "bake-travel-bread",
+        "name": "Bake Travel Bread",
+        "steps": [
+          {
+            "name": "Knead dough",
+            "laborRequirement": 1,
+            "requirements": ["flour", "water", "salt"]
+          },
+          {
+            "name": "Oven bake",
+            "laborRequirement": 2,
+            "requirements": ["oven or dutch heat", "prop:doneness → Cooked"]
+          }
+        ]
+      },
+      "linkedSkills": ["cooking"],
+      "linkedMaterials": [],
+      "tags": ["food", "baking", "example", "generated"],
+      "source": "gdd-cooking",
+      "notes": "Baking subskill fantasy from Cooking profession grid notes.",
+      "media": {
+        "modelUrl": "assets/placeholders/placeholder.glb",
+        "images": [
+          { "url": "assets/placeholders/ref-02.svg", "caption": "Loaf" },
+          { "url": "assets/placeholders/ref-03.svg", "caption": "Slice" },
+          { "url": "assets/placeholders/ref-01.svg", "caption": "Wrapped for trail" }
+        ]
+      }
+    }
+  ]
+}

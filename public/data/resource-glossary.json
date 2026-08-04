@@ -1,0 +1,243 @@
+{
+  "meta": {
+    "id": "resource-glossary",
+    "label": "Resource Glossary",
+    "version": 1,
+    "description": "Open-ended records for resource nodes and other world interactables. Links loosely to materials and gather skills; media preview is shared with bestiary/items.",
+    "sources": [
+      "Material Tables II (materials.json)",
+      "Trailbound GDD / Skills (Mining, Foraging, Woodcutting, Fordcraft)",
+      "Crafting and Item Attributes"
+    ],
+    "schemaNotes": [
+      "kind: node | interactable | deposit | stand | patch (extensible)",
+      "yields / linkedMaterials: workshop links to materials or item ids",
+      "tools / gatherMethods: optional skill or tool hints",
+      "media block optional; placeholders fill gaps for UI testing"
+    ]
+  },
+  "records": [
+    {
+      "id": "bog-iron-seep",
+      "name": "Bog Iron Seep",
+      "kind": "deposit",
+      "description": "Soft iron precipitate in peat wetlands. Slow yield, dirty ore, classic bog-iron fantasy.",
+      "interaction": "harvest",
+      "rarity": "uncommon",
+      "biomes": ["peat bog", "marsh"],
+      "yields": ["bog-iron", "peat"],
+      "linkedMaterials": ["bog-iron", "peat"],
+      "tools": ["spade", "sluice-basket"],
+      "linkedSkills": ["mining", "fordcraft", "foraging"],
+      "tags": ["ore", "wetland", "node", "example", "generated"],
+      "source": "material-tables-ii",
+      "notes": "Pairs with Bog Lurker threat fantasy nearby.",
+      "media": {
+        "modelUrl": "assets/placeholders/placeholder.glb",
+        "images": [
+          { "url": "assets/placeholders/ref-01.svg", "caption": "Seep surface" },
+          { "url": "assets/placeholders/ref-02.svg", "caption": "Tool kit" },
+          { "url": "assets/placeholders/ref-03.svg", "caption": "Wetland context" }
+        ]
+      }
+    },
+    {
+      "id": "peat-cutting",
+      "name": "Peat Cutting",
+      "kind": "node",
+      "description": "Worked peat bank for fuel bricks and soil amendment. Fertility-linked dirt category material.",
+      "interaction": "cut",
+      "rarity": "common",
+      "biomes": ["peat bog", "moor"],
+      "yields": ["peat"],
+      "linkedMaterials": ["peat"],
+      "tools": ["peat-knife", "stack-rack"],
+      "linkedSkills": ["foraging", "fordcraft"],
+      "tags": ["dirt", "fuel", "node", "example", "generated"],
+      "source": "material-tables-ii",
+      "media": {
+        "modelUrl": "assets/placeholders/placeholder.glb",
+        "images": [
+          { "url": "assets/placeholders/ref-02.svg", "caption": "Cutting face" },
+          { "url": "assets/placeholders/ref-01.svg", "caption": "Brick stack" },
+          { "url": "assets/placeholders/ref-03.svg", "caption": "Moor vista" }
+        ]
+      }
+    },
+    {
+      "id": "heartvein-outcrop",
+      "name": "Heartvein Outcrop",
+      "kind": "deposit",
+      "description": "Distinctive ore seam with high lustrous quality. Worth the climb; attracts Ironroot Wurm attention.",
+      "interaction": "mine",
+      "rarity": "rare",
+      "biomes": ["highland", "canyon wall"],
+      "yields": ["heartvein"],
+      "linkedMaterials": ["heartvein"],
+      "tools": ["pickaxe", "lamp"],
+      "linkedSkills": ["mining", "material-sense"],
+      "tags": ["ore", "rare", "node", "example", "generated"],
+      "source": "material-tables-ii",
+      "media": {
+        "modelUrl": "assets/placeholders/placeholder.glb",
+        "images": [
+          { "url": "assets/placeholders/ref-03.svg", "caption": "Vein glint" },
+          { "url": "assets/placeholders/ref-01.svg", "caption": "Climb approach" },
+          { "url": "assets/placeholders/ref-02.svg", "caption": "Sample" }
+        ]
+      }
+    },
+    {
+      "id": "oak-stand",
+      "name": "Oak Stand",
+      "kind": "stand",
+      "description": "Mature hardwood stand for structural timber and wagonwright stock. Placeholder wood link until wood materials return to sheet.",
+      "interaction": "fell / mill",
+      "rarity": "common",
+      "biomes": ["temperate forest", "river bluff"],
+      "yields": ["oak-timber", "bark"],
+      "linkedMaterials": [],
+      "tools": ["axe", "saw"],
+      "linkedSkills": ["woodcutting", "carpentry", "wagonwright"],
+      "tags": ["wood", "stand", "node", "example", "generated"],
+      "source": "gdd-woodcutting",
+      "notes": "Matches generate-materials oak draft until CSV covers organics/wood again.",
+      "media": {
+        "modelUrl": "assets/placeholders/placeholder.glb",
+        "images": [
+          { "url": "assets/placeholders/ref-01.svg", "caption": "Canopy" },
+          { "url": "assets/placeholders/ref-02.svg", "caption": "Trunk section" },
+          { "url": "assets/placeholders/ref-03.svg", "caption": "Mill mock" }
+        ]
+      }
+    },
+    {
+      "id": "wild-herb-patch",
+      "name": "Wild Herb Patch",
+      "kind": "patch",
+      "description": "Seasonal forage patch for cooking and alchemy ingredients. Identification skill gates quality.",
+      "interaction": "forage",
+      "rarity": "uncommon",
+      "biomes": ["meadow", "forest edge"],
+      "yields": ["trail-herbs", "seasoning-leaf"],
+      "tools": ["knife", "basket"],
+      "linkedSkills": ["foraging", "cooking", "alchemy", "identification-animal"],
+      "tags": ["forage", "patch", "cooking", "example", "generated"],
+      "source": "gdd-foraging",
+      "media": {
+        "modelUrl": "assets/placeholders/placeholder.glb",
+        "images": [
+          { "url": "assets/placeholders/ref-02.svg", "caption": "Patch overview" },
+          { "url": "assets/placeholders/ref-03.svg", "caption": "Leaf ID" },
+          { "url": "assets/placeholders/ref-01.svg", "caption": "Basket yield" }
+        ]
+      }
+    },
+    {
+      "id": "clay-bank",
+      "name": "Clay Bank",
+      "kind": "node",
+      "description": "River-cut clay deposit for ceramics, mortar, and workshop seals.",
+      "interaction": "dig",
+      "rarity": "common",
+      "biomes": ["riverbank", "floodplain"],
+      "yields": ["clay"],
+      "linkedMaterials": ["clay"],
+      "tools": ["spade", "wedge"],
+      "linkedSkills": ["foraging", "artisanship"],
+      "tags": ["dirt", "craft", "node", "example", "generated"],
+      "source": "material-tables-ii",
+      "media": {
+        "modelUrl": "assets/placeholders/placeholder.glb",
+        "images": [
+          { "url": "assets/placeholders/ref-01.svg", "caption": "Bank face" },
+          { "url": "assets/placeholders/ref-02.svg", "caption": "Wet clay" },
+          { "url": "assets/placeholders/ref-03.svg", "caption": "River context" }
+        ]
+      }
+    },
+    {
+      "id": "limestone-shelf",
+      "name": "Limestone Shelf",
+      "kind": "deposit",
+      "description": "Accessible stone shelf for building blocks and kiln flux. Tiered stone from Material Tables II.",
+      "interaction": "quarry",
+      "rarity": "common",
+      "biomes": ["karst", "ridge"],
+      "yields": ["limestone"],
+      "linkedMaterials": ["limestone"],
+      "tools": ["pickaxe", "wedge", "maul"],
+      "linkedSkills": ["mining", "masonry"],
+      "tags": ["stone", "quarry", "node", "example", "generated"],
+      "source": "material-tables-ii",
+      "media": {
+        "modelUrl": "assets/placeholders/placeholder.glb",
+        "images": [
+          { "url": "assets/placeholders/ref-03.svg", "caption": "Shelf ledge" },
+          { "url": "assets/placeholders/ref-01.svg", "caption": "Block cut" },
+          { "url": "assets/placeholders/ref-02.svg", "caption": "Tool marks" }
+        ]
+      }
+    },
+    {
+      "id": "abandoned-cache",
+      "name": "Abandoned Cache",
+      "kind": "interactable",
+      "description": "World interactable: sealed crate or buried store left by a prior column. Not a gather node; loot / story hook.",
+      "interaction": "open / inspect",
+      "rarity": "uncommon",
+      "biomes": ["trail verge", "ruined camp"],
+      "yields": ["trail-ration", "scrap-tool", "journal-page"],
+      "tools": ["crowbar"],
+      "linkedSkills": ["scouting", "organization"],
+      "tags": ["interactable", "loot", "poi", "example", "generated", "no-media"],
+      "source": "generated",
+      "notes": "Intentionally has no media block — tests empty media UI. Also covers non-node interactables."
+    },
+    {
+      "id": "trail-well",
+      "name": "Trail Well",
+      "kind": "interactable",
+      "description": "Fixed water source interactable. Restores party water stores; may be fouled or contested.",
+      "interaction": "draw water",
+      "rarity": "common",
+      "biomes": ["waystation", "arid trail"],
+      "yields": ["fresh-water"],
+      "tools": ["bucket", "rope"],
+      "linkedSkills": ["trail-hardiness", "organization"],
+      "tags": ["interactable", "water", "survival", "example", "generated"],
+      "source": "gdd-caravan",
+      "media": {
+        "modelUrl": "assets/placeholders/placeholder.glb",
+        "images": [
+          { "url": "assets/placeholders/ref-02.svg", "caption": "Wellhead" },
+          { "url": "assets/placeholders/ref-03.svg", "caption": "Bucket draw" },
+          { "url": "assets/placeholders/ref-01.svg", "caption": "Waystation" }
+        ]
+      }
+    },
+    {
+      "id": "berry-thicket",
+      "name": "Berry Thicket",
+      "kind": "patch",
+      "description": "Quick forage for trail snacks and cooking ingredients. Spoilage clock starts on gather.",
+      "interaction": "pick",
+      "rarity": "common",
+      "biomes": ["forest edge", "meadow"],
+      "yields": ["wild-berries"],
+      "tools": ["basket"],
+      "linkedSkills": ["foraging", "cooking"],
+      "tags": ["forage", "food", "patch", "example", "generated"],
+      "source": "gdd-foraging",
+      "notes": "Cooking profession: spoilage foresight and ration pressure.",
+      "media": {
+        "modelUrl": "assets/placeholders/placeholder.glb",
+        "images": [
+          { "url": "assets/placeholders/ref-03.svg", "caption": "Thicket" },
+          { "url": "assets/placeholders/ref-01.svg", "caption": "Cluster close-up" },
+          { "url": "assets/placeholders/ref-02.svg", "caption": "Basket fill" }
+        ]
+      }
+    }
+  ]
+}
